@@ -101,7 +101,7 @@ Upon deployment completion, a full Demo project and Demo data space are included
 
 ## 🌐 Online Demo
 
-Demo environment is under preparation — stay tuned!
+http://www.ottomi.top
 
 
 
