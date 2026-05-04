@@ -1,4 +1,4 @@
-##　Copyright (c) 2025-present 上海奥腾计算机科技有限公司
+## Copyright (c) 2025-present 上海奥腾计算机科技有限公司
 
 Ottomi Nexus 产品采用“商业差异化授权”模式：
 1. 基础版：免费使用，仅限非商业、企业内部合法部署与使用；
