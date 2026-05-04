@@ -1,6 +1,17 @@
 # Ottomi Nexus Basic Edition and Commercial Edition Rules
 
-## I. Overall Product Model
+## Table of Contents
+- [1. Overall Product Model](#1-Overall-Product-Model)
+- [2. Resource Limits by Edition](#2-Resource-Limits-by-Edition)
+- [3. Technical Support Service Tiering Rules](#3-Technical-Support-Service-Tiering-Rules)
+- [4. License Authorization and Activation Rules](#4-License-Authorization-and-Activation-Rules)
+- [5. Customized Value-Added Services](#5-Customized-Value-Added-Services)
+- [6. General External Cooperation Rules](#6-General-External-Cooperation-Rules)
+- [7. Supplementary Declarations](#7-Supplementary-Declarations)
+
+
+
+## 1. Overall Product Model
 
 Ottomi Nexus adopts a product model of **permanently free Basic Edition + two-tier Commercial Edition available through progressive purchase**. Going forward, select data application modules will be gradually open-sourced (such as intelligent data querying, multimodal search, master data management, and Intelligence Center system API/MCP call examples and development guidelines), while core technology modules will remain closed-source.
 
@@ -8,7 +19,7 @@ Ottomi Nexus adopts a product model of **permanently free Basic Edition + two-ti
 - Commercial Edition: Divided into two tiers — **Advanced Edition and Group Edition**. **The Advanced Edition must be purchased first before the Group Edition becomes available**. A perpetual license model is used, with annual services billed separately;
 - All commercial cooperation, license activation, and service procurement can be arranged through direct communication with the Oceandatum official sales team.
 
-## II. Resource Limits by Edition
+## 2. Resource Limits by Edition
 
 ### (I) Basic Edition (Permanently Free)
 
@@ -51,7 +62,7 @@ Core benefits: **Fully inherits all Advanced Edition capabilities with unlimited
 
 Activation method: After purchasing and activating the Advanced Edition, upgrade through official activation by replacing with a domain-wide unrestricted License. All existing configurations and data are preserved.
 
-## III. Technical Support Service Tiering Rules
+## 3. Technical Support Service Tiering Rules
 
 ### (I) Service Tiers, Applicable Editions, Response SLAs, and Annual Case Quotas (Summary Table)
 
@@ -91,7 +102,7 @@ Customers may use remaining valid annual Case credits to redeem on-site support 
 - Official public announcements, public documentation updates, and mass notifications that do not involve one-on-one manual service;
 - Customer self-service through documentation review, independent operations, and self-directed troubleshooting without engineer assistance.
 
-## IV. License Authorization and Activation Rules
+## 4. License Authorization and Activation Rules
 
 1. Basic Edition: A universal License is automatically generated upon installation, defaulting to Basic Edition resource limits with no device binding and no dedicated service permissions;
 2. Advanced Edition: Upon completion of commercial authorization, a device-specific License is issued, uniquely bound to the MAC address, activating corresponding services and Case permissions;
@@ -100,7 +111,7 @@ Customers may use remaining valid annual Case credits to redeem on-site support 
 5. Commercial Edition perpetual licenses remain valid long-term. Main-line version iteration features can be upgraded free of charge, regardless of service renewal status;
 6. If annual services expire without renewal, only manual technical support and Case submission permissions are revoked — previously unlocked software resources are not restricted.
 
-## V. Customized Value-Added Services
+## 5. Customized Value-Added Services
 
 Customers of all editions may purchase customized value-added services as needed. These services are independent projects and do not consume annual Case quotas. Specific arrangements require engagement with the official sales team:
 
@@ -110,7 +121,7 @@ Customers of all editions may purchase customized value-added services as needed
 4. Custom Development: Feature modifications, third-party system integration, custom interface development;
 5. Consulting and Planning: Data platform top-level design, industry data model construction, full-domain data governance planning.
 
-## VI. General External Cooperation Rules
+## 6. General External Cooperation Rules
 
 1. Commercial licensing, service procurement, channel resale, and related cooperation details are handled exclusively by the official sales team. Specific cooperation pricing is not publicly disclosed;
 2. The Advanced Edition and Group Edition follow a strict sequential purchase requirement — the Group Edition cannot be obtained directly without holding an Advanced Edition license;
@@ -118,7 +129,7 @@ Customers of all editions may purchase customized value-added services as needed
 4. These rules serve as the general external standard. Special industries and large-scale projects may have customized cooperation arrangements;
 5. Product rules may be optimized with version iterations. The official team will promptly communicate the latest content. Oceandatum reserves the right of final interpretation.
 
-## VII. Supplementary Declarations
+## 7. Supplementary Declarations
 
 1. Commercial Edition perpetual licensing applies only to product resource limit unlocking and standard product usage rights. It does not include customized development, on-site implementation, or other value-added services;
 2. Cracking, tampering with License authorization, unauthorized commercial use, or secondary distribution are strictly prohibited. Violators will be held legally liable;
