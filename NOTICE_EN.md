@@ -84,11 +84,11 @@ This Product only integrates and consolidates the above components. All relevant
 
 ## Trademark and Logo Declaration
 
-Ottomi, Ottomi Nexus, and related product names and logos are the property of Shanghai Ottomi Computer Technology Co., Ltd. No entity or individual may use, alter, or impersonate them without written authorization.
+Ottomi, Ottomi Nexus, and related product names and logos are the property of Shanghai Oceandatum Computer Technology Co., Ltd. No entity or individual may use, alter, or impersonate them without written authorization.
 
 ## Usage Restrictions
 
-Without the written permission of Shanghai Ottomi Computer Technology Co., Ltd., no entity or individual may decompile, reverse engineer, decrypt, crack the authorization mechanism, remove copyright protection information from, or perform secondary licensing, subleasing, or resale of this Product. Violators will be held legally liable.
+Without the written permission of Shanghai Oceandatum Computer Technology Co., Ltd., no entity or individual may decompile, reverse engineer, decrypt, crack the authorization mechanism, remove copyright protection information from, or perform secondary licensing, subleasing, or resale of this Product. Violators will be held legally liable.
 
 ## Multi-Language Version Declaration
 
