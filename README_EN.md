@@ -1,206 +1,222 @@
+
 # Ottomi Nexus Multimodal AI Data Platform README
 
+## Table of Contents
 
+- [1. Core Advantages](#1-core-advantages)
+- [2. Product Model](#2-product-model)
+- [3. Quick Start](#3-quick-start)
+- [4. System Requirements](#4-system-requirements)
+- [5. Online Demo](#5-online-demo)
+- [6. Product UI Preview](#6-product-ui-preview)
+- [7. Tech Stack](#7-tech-stack)
+- [8. Edition & Service Overview](#8-edition--service-overview)
+- [9. Core Use Cases -- Industry Fit](#9-core-use-cases----industry-fit)
+- [10. Changelog & Roadmap](#10-changelog--roadmap)
+- [11. Copyright & License](#11-copyright--license)
+- [12. Business Inquiries](#12-business-inquiries)
 
-## 🚀 Core Advantages
+---
 
-### 1. 📦 Single-Package Integrated Deployment, Truly Simple and Easy to Use
+## 1. Core Advantages
 
-Ottomi Nexus is delivered as a single package with one-click installation for immediate deployment, requiring no complex environment configuration or secondary development.
+### 1.1 All-in-One Single-Package Deployment — Truly Simple
 
-Built-in capabilities span the full data lifecycle — data ingestion, intelligent governance, data warehouse modeling, data quality inspection, asset management, BI analytics, permission approval — enabling enterprises to upgrade from "patched-together systems" to **one platform solving all data challenges**.
+Ottomi Nexus is delivered as a single package. Install with one command and go live immediately — no complex environment setup or secondary development required.
 
-### 2. 🤖 AI-Assisted Automated Governance, Significantly Reducing Human Costs
+Built-in full-chain capabilities covering data ingestion, intelligent governance, data warehouse modeling, data quality inspection, asset management, BI analytics, and permission approval — enabling enterprises to move from "multi-system patchwork" to **one platform that handles all data challenges**.
 
-The platform leverages AI assistance to achieve intelligent data processing across the entire workflow:
+### 1.2 AI-Assisted Automated Governance — Dramatically Lower Labor Costs
 
-- Automatic cataloging and aggregation of source-side assets
-- Integrated CDC real-time synchronization and batch data processing
+The platform leverages AI to intelligently automate the entire data lifecycle:
+
+- Automatic cataloging and aggregation of source assets
+- CDC real-time sync and batch data processing in one pipeline
 - Automated data quality inspection (DAMA-compliant)
-- Intelligent recommendation of data standards, metrics, and dimensional models
+- Intelligent recommendations for data standards, metrics, and dimensional models
 
-Transforming traditionally labor-intensive data governance into **visual, click-based, low-cost** efficient operations.
+Transforming traditionally labor-intensive data governance into **visual, point-and-click, low-cost** efficient operations.
 
-### 3. 🔒 Secure and Controllable Data Space, Automatic Classification and Grading Scanning + Tiered Sharing
+### 1.3 Secure & Controlled Data Space — Auto Classification + Tiered Sharing
 
-Building an enterprise-grade secure and compliant data governance system:
+Build an enterprise-grade, security-compliant data governance framework:
 
-- Automatic classification and grading identification and scanning
-- Full-lifecycle data lineage tracking
+- Automatic data classification and sensitivity scanning
+- Full-chain data lineage tracking
 - Tiered sharing mechanism for secure, on-demand data access
-- Dual sandbox development/production environment isolation
-- Tamper-proof logs ensuring operations are auditable and traceable
+- Dual-sandbox dev/production environment isolation
+- Tamper-proof audit logs ensuring full traceability
 
 Making data truly **controllable, manageable, shareable, and compliant**.
 
-### 4. 📊 Visual Data Warehouse Modeling, Easily Build Multi-Dimensional Cube Models
+### 1.4 Visual Data Warehouse Modeling — Easily Build Multi-Dimensional Cube Models
 
-Providing comprehensive enterprise-grade data warehouse modeling capabilities:
+Complete enterprise-grade data warehouse modeling capabilities:
 
 - Visual dimension table and fact table construction
 - Drag-and-drop multi-dimensional Cube design
-- Visual configuration for generating metric systems
+- Visual configuration to generate metric systems
 - Full-process visibility from raw data to processed assets
 
-Lowering the barrier to data warehouse development, enabling business users to participate in data modeling with ease.
+Lowering the barrier to data warehouse development so business users can participate in data modeling with ease.
 
-### 5. 🏛️ Full-Lifecycle Data Asset Operations, Turning Data into Operable Assets
+### 1.5 Full-Chain Data Asset Operations — Turn Data into Operable Assets
 
-Data assets are no longer limited to data tables — unified management covers:
+Data assets go beyond tables — unified management of:
 
-- Raw data, processing workflows, and asset publishing
+- Raw data, processing pipelines, and published assets
 - Metric systems, API services, and business processes
-- Full-process data application, approval, subscription, and authorization
+- Full workflow for data requests, approvals, subscriptions, and authorization
 
-Achieving data assets that are **inventoryable, traceable, applicable, approvable, and operable**.
+Enabling data assets to be **inventoried, traced, requested, approved, and operated**.
 
-### 6. 🧩 Lightweight Integrated Operations, Quick Onboarding and Low Learning Curve
+### 1.6 Lightweight All-in-One Operations — Fast Onboarding, Low Learning Curve
 
-All functions are completed within a unified Web interface, with minimal need for script writing:
+All features are accessible through a unified Web interface with minimal scripting required:
 
-- Batch click-based data integration, no per-table configuration required
-- Built-in notifications (in-app, email, and enterprise WeChat)
-- Fine-grained permission control (data source, table, column, and row-level permissions)
-- Built-in workflow approval engine with automatic routing for data applications
+- Batch point-and-click data integration — no per-table configuration
+- Built-in notifications (in-app, email, WeCom)
+- Fine-grained permission control (data source, table, column, and row-level)
+- Built-in workflow approval engine for automated data request routing
 
-Truly delivering a **lightweight, simple, integrated, and low-cost** data governance experience.
+Delivering a truly **lightweight, simple, all-in-one, low-cost** data governance experience.
 
+---
 
+## 2. Product Model
 
-## 💰 Product Model
+Ottomi Nexus adopts a **permanently free Community Edition + tiered Commercial Edition** product model.
 
-Ottomi Nexus adopts a product model of **permanently free Basic Edition + two-tier Commercial Edition available through progressive purchase**.
+Select data application modules (e.g., intelligent Q&A, multimodal search, master data management, MCP development via the Intelligence Hub) will be progressively open-sourced, while core technical modules remain closed-source.
 
-Going forward, select data application modules will be gradually open-sourced (such as intelligent data querying, multimodal search, master data management, and system API/MCP call examples and development guidelines via the Intelligence Center), while core technology modules will remain closed-source.
+---
 
+## 3. Quick Start
 
+Ottomi Nexus has a large deployment package and supports **online image pull + offline private deployment** dual modes, enabling fast deployment in both networked and air-gapped environments — basic setup takes approximately 15 minutes.
 
-## ⚡ Quick Start
+### 3.1 Online Deployment (approx. 15 min)
 
-Ottomi Nexus has a large deployment package and supports both **online image pulling + offline private deployment** modes, enabling rapid deployment in both networked and networkless environments. Basic setup completes in approximately 15 minutes.
+On a server with internet access, pull the latest images directly from the official registry, complete containerized one-click installation with automatic dependency resolution and environment configuration, and launch the platform.
 
-### Online Deployment (~15 minutes)
+### 3.2 Offline Deployment (approx. 15 min)
 
-On servers with network connectivity, the latest images are pulled directly from the official image repository for one-click containerized installation, with automatic dependency resolution and environment configuration for rapid platform startup.
+First pull the official images on a networked server and export them as an offline installation package. Copy the package to an intranet / air-gapped environment, import the images, and run the local installer — no external network dependency, no data egress.
 
-### Offline Deployment (~15 minutes)
+After deployment, a complete Demo project and Demo data space are built in out of the box. No additional test data preparation is needed — you can experience the full platform workflow immediately.
 
-First, pull official images on a networked server and export them as an offline installation package; then copy the package to an intranet/networkless environment, import the images, and perform local installation — the entire process has no external network dependency and no data egress.
+---
 
-Upon deployment completion, a full Demo project and Demo data space are included out of the box, requiring no additional test data preparation — users can directly experience the platform's full-process capabilities.
+## 4. System Requirements
 
+- OS: Mainstream Linux distributions (Debian / RedHat based, including domestic Chinese OS)
+- Server Architecture: Currently x86_64 only (aarch64 support coming in future releases)
+- Minimum Resources: 8 vCPU / 16 GB RAM
 
+---
 
-## 🖥️ System Requirements
-
-- OS: Supports mainstream Linux distributions (Debian/RedHat-based, including domestic operating systems)
-- Server architecture: Currently supports x86_64 only (aarch64 architecture support coming in future releases)
-- Minimum resource requirements: 8 cores, 16 GB RAM
-
-
-
-## 🌐 Online Demo
+## 5. Online Demo
 
 http://www.ottomi.top
 
+---
 
+## 6. Product UI Preview
 
-## 📸 Product Interface Preview
+The platform features a unified Web interface — clean, lightweight, and easy to learn — covering core views including data asset overview, AI-automated governance workbench, visual data warehouse modeling, and multimodal data management.
 
-The platform features an integrated Web-based interface that is clean, lightweight, and easy to learn, covering core interfaces such as data asset overview, AI automated governance workspace, visual data warehouse modeling, and multimodal data management.
+(Screenshots to be added)
 
-(Interface screenshots to be added)
+---
 
-
-
-## 🛠️ Technology Stack
+## 7. Tech Stack
 
 Ottomi Nexus is built on a cloud-native architecture, deeply integrating mainstream open-source ecosystems and heterogeneous data capabilities to deliver an efficient, stable, and compliant data governance foundation:
 
-- **Cloud-Native and Distributed Architecture**
-
-  Supports containerized deployment, elastic scaling, and distributed parallel computing to handle massive multimodal data processing demands with ease.
+- **Cloud-Native & Distributed Architecture**Supports containerized deployment, elastic scaling, and distributed parallel computing to handle massive multimodal data processing demands.
 
 - **Built-in Open-Source Ecosystem Components**
 
-  Deeply integrates open-source projects such as SeaTunnel, DolphinScheduler, DataHub,DataEase and MinIO, embedding full-lifecycle data ingestion, scheduling, metadata management, and BI visualization capabilities, significantly reducing secondary development costs.
+  Deeply integrates SeaTunnel, DolphinScheduler, DataHub, DataEase, and other open-source projects, providing built-in full-chain data ingestion, scheduling, metadata management, and BI visualization — significantly reducing secondary development costs.
 
 - **Multi-Source Heterogeneous Data Compatibility**
 
-  Comprehensively supports mainstream relational databases including MySQL, PostgreSQL, Oracle, DB2, DM (Dameng), KingbaseES, OceanBase, and ClickHouse, while also compatible with big data ecosystem components such as Kafka and Hive, enabling unified ingestion and automatic mapping of structured, unstructured, and real-time streaming data. Users can also select compatible database types as their data warehouse.
+  Fully supports MySQL, PostgreSQL, Oracle, DB2, DM Database, KingbaseES, OceanBase, ClickHouse, and other mainstream relational databases, while also compatible with Kafka, Hive, and other big data ecosystem components. Enables unified ingestion and automatic mapping of structured, unstructured, and real-time streaming data. Users can also select a compatible database type as their data warehouse.
 
 - **Multimodal Data Governance**
 
-  Covers multiple data types including relational data, log files, audio, and video, breaking down data silos and achieving unified management of all-domain data.
+  Covers relational data, log files, audio/video, and other data types — breaking down data silos and enabling unified management across all data domains.
 
-- **Compliance Adaptation Framework**
+- **Compliance Framework**
 
-  Deeply adapts to requirements under the Data Security Law, Personal Information Protection Law, and GDPR, with built-in capabilities including automatic classification and grading scanning, tiered sharing, dual sandbox isolation, and tamper-proof logs, helping enterprises build a compliant and controllable data circulation system.
+  Deeply aligned with China's Data Security Law, Personal Information Protection Law, and GDPR requirements. Built-in capabilities include automatic classification and sensitivity scanning, tiered sharing, dual-sandbox isolation, and tamper-proof logs — helping enterprises build a compliant and controlled data circulation system.
 
-- **Lightweight Integrated Interface**
+- **Lightweight All-in-One Interface**
 
-  Delivered via a unified Web interface, requiring no complex scripts and supporting rapid onboarding for all users.
+  Delivered via a unified Web interface with no complex scripting, enabling rapid onboarding for all users.
 
+---
 
+## 8. Edition & Service Overview
 
-## 🧪 Edition and Service Overview
+### 8.1 Community Edition (Permanently Free)
 
-### Basic Edition (Permanently Free)
+- Supports **fully private deployment** — all data and services run on your own servers / intranet with no external dependencies and no data egress.
 
-- Supports **fully private deployment** — all data and services run on your own servers/intranet, with no external dependencies and no data egress.
-- Provides the GitHub Issues official public community support channel, offering public responses and discussions for general functional issues and common usage scenarios only (note: dedicated issue resolution, customization requirements, and one-on-one in-depth troubleshooting require purchasing technical support services or upgrading to the Commercial Edition).
-- Meets the foundational data governance needs of SMEs, individual developers, and testing/validation scenarios.
+- Provides the GitHub Issues community channel for general feature questions and common usage scenarios only (note: dedicated issue investigation, customization requests, one-on-one deep troubleshooting, and other exclusive services require purchasing a technical support plan or the Commercial Edition).
 
+- Meets the foundational data governance needs of SMEs, individual developers, and proof-of-concept scenarios.
 
+### 8.2 Commercial Edition (Enterprise-Grade)
 
-### Commercial Edition (Enterprise-Grade Enhancement)
+Builds on the Community Edition to remove resource limits and unlock enterprise-exclusive capabilities:
 
-Building upon the Basic Edition, it breaks through resource limits and provides enterprise-exclusive core capabilities:
+- Dedicated technical support with fast response
+- Multi-tenant isolation and unlimited node elastic scaling
+- Dedicated case support (up to 32 exclusive service sessions)
+- On-site implementation, training, and custom integration services available
+- Enterprise SLA guarantees, performance optimization, and security hardening
 
-- Dedicated technical support with rapid response
-- Multi-tenant isolation with unlimited node elastic scaling
-- Exclusive Case support (up to 32 dedicated service instances)
-- On-site implementation, training, and customized integration services available
-- Enterprise-grade SLA guarantees, performance optimization, and security hardening
+See *Ottomi Nexus Community Edition vs. Commercial Edition Feature Comparison* for details.
 
-For details, please refer to the *Ottomi Nexus Basic Edition and Commercial Edition Rules*.
+---
 
+## 9. Core Use Cases -- Industry Fit
 
+Ottomi Nexus is designed for **data-intensive, high-compliance** scenarios with **broad cross-industry applicability**.
 
-## 🎯 Core Application Scenarios & Industry Adaptation
+### 9.1 Flagship Industries
 
-Ottomi Nexus is designed for **data-intensive, high-compliance** scenarios, with **multi-industry universal applicability**.
+- **Manufacturing**: Full-chain production data governance, supply chain collaboration
+- **Finance**: Customer asset consolidation, transaction data compliance auditing
+- **Government**: Cross-department data sharing, data factor circulation
 
-### 🏆 Flagship Adapted Industries
+### 9.2 General Applicability
 
-- **Manufacturing**: Full-lifecycle production data governance, supply chain collaboration
-- **Finance**: Customer asset integration, transaction data compliance auditing
-- **Government**: Cross-departmental data sharing, data element circulation
+Also supports **energy / water conservancy, healthcare & education, retail & e-commerce, transportation & logistics, tobacco**, and more — rapidly customizable to industry-specific requirements.
 
-### 🌐 Universal Adaptation
+---
 
-Also supports additional industries including **energy/water utilities, healthcare/education, retail/e-commerce, transportation/logistics, and tobacco/design**, with rapid customization available based on industry-specific characteristics.
+## 10. Changelog & Roadmap
 
+Ottomi Nexus is continuously maintained and updated by the official team, with releases covering bug fixes, performance optimizations, and core feature enhancements.
 
+The platform will progressively open-source upper application layer modules, including Master Data Management (MDM), intelligent Q&A / smart query, multimodal search, enterprise product recommendation systems, and Intelligence Hub API/MCP usage examples and development specifications.
 
-## 🔄 Version Updates and Roadmap
+The Intelligence Hub, as the upper-layer capability hub, will open API access, MCP extensions, Skills plugin mechanisms, and accompanying development examples — enabling third parties to build custom applications on top of the platform. Core underlying capabilities will remain closed-source. All release content is subject to GitHub Releases.
 
-Ottomi Nexus is continuously iterated and maintained by the official team, with version updates released periodically covering bug fixes, system performance optimization, and core feature enhancements.
+---
 
-The platform will gradually open-source upper application-layer modules, specifically including Master Data Management (MDM), intelligent data querying/intelligent Q&A, multimodal search, enterprise product recommendation systems, as well as Intelligence Center API/MCP call examples and development guidelines.
+## 11. Copyright & License
 
-As the platform's upper-layer capability hub, the Intelligence Center will open its API, MCP extensions, Skills plugin mechanisms, and accompanying development examples, supporting third parties in building custom applications on the platform. Core underlying platform capabilities will remain closed-source. All version release content is subject to the GitHub Releases page.
+This product is copyright © Shanghai Aoteng Computer Technology Co., Ltd. For complete compliance information including commercial licensing terms, third-party open-source component notices, and usage restrictions, please refer to the **NOTICE** file in the project root directory.
 
+---
 
+## 12. Business Inquiries
 
-## 📄 Copyright and Licensing
-
-The copyright of this product belongs to Shanghai Oceandatum Computer Technology Co., Ltd. For complete compliance information including detailed commercial licensing rules, third-party open-source component declarations, and usage restrictions, please refer to the **NOTICE** file in the project root directory.
-
-
-
-## 🤝 Business Inquiries
-
-For enterprise customization, Commercial Edition procurement, dedicated technical support, and other cooperation needs, please contact:
+For enterprise customization, Commercial Edition procurement, dedicated technical support, or other partnership inquiries, please contact us at:
 
 info@oceandatum.com
+
+
