@@ -123,7 +123,7 @@ Ottomi Nexus is built on a cloud-native architecture, deeply integrating mainstr
 
 - **Built-in Open-Source Ecosystem Components**
 
-  Deeply integrates open-source projects such as SeaTunnel, DolphinScheduler, DataHub, and DataEase, embedding full-lifecycle data ingestion, scheduling, metadata management, and BI visualization capabilities, significantly reducing secondary development costs.
+  Deeply integrates open-source projects such as SeaTunnel, DolphinScheduler, DataHub,DataEase and MinIO, embedding full-lifecycle data ingestion, scheduling, metadata management, and BI visualization capabilities, significantly reducing secondary development costs.
 
 - **Multi-Source Heterogeneous Data Compatibility**
 
@@ -195,7 +195,7 @@ As the platform's upper-layer capability hub, the Intelligence Center will open 
 
 ## 📄 Copyright and Licensing
 
-The copyright of this product belongs to Shanghai Ottomi Computer Technology Co., Ltd. For complete compliance information including detailed commercial licensing rules, third-party open-source component declarations, and usage restrictions, please refer to the **NOTICE** file in the project root directory.
+The copyright of this product belongs to Shanghai Oceandatum Computer Technology Co., Ltd. For complete compliance information including detailed commercial licensing rules, third-party open-source component declarations, and usage restrictions, please refer to the **NOTICE** file in the project root directory.
 
 
 
