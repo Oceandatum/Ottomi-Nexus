@@ -2,11 +2,11 @@
 
 ## Copyright Notice
 
-The copyright of Ottomi Nexus and its related functional modules (hereinafter referred to as "this Product") belongs to **Shanghai Ottomi Computer Technology Co., Ltd.**, and is protected by relevant laws and regulations including the *Civil Code of the People's Republic of China* and the *Regulations on the Protection of Computer Software*.
+The copyright of Ottomi Nexus and its related functional modules (hereinafter referred to as "this Product") belongs to **Shanghai Oceandatum Computer Technology Co., Ltd.**, and is protected by relevant laws and regulations including the *Civil Code of the People's Republic of China* and the *Regulations on the Protection of Computer Software*.
 
 This Product adopts a differentiated commercial licensing model: **the Enterprise Basic Edition may be used free of charge, while the Enterprise Advanced Edition and Enterprise Group Edition require official commercial authorization prior to use**, with higher editions unlocking additional functional parameters and usage permissions. Only certain designated functional modules of this Product are planned to be released under a customized open-source licensing model (see subsequent official announcements and the corresponding LICENSE file for details); this Product is not open-sourced in its entirety. Any natural person, legal entity, or other organization that obtains, uses, modifies, or distributes the open-source portions of this Product must strictly comply with the applicable open-source license terms and the terms of this Notice. To upgrade and access higher-edition features, please contact our company via the official contact information below.
 
-Shanghai Ottomi Computer Technology Co., Ltd. reserves the right of final interpretation regarding this Product's licensing model, functional scope, and pricing strategy.
+Shanghai Oceandatum Computer Technology Co., Ltd. reserves the right of final interpretation regarding this Product's licensing model, functional scope, and pricing strategy.
 
 ## Embedded Third-Party Component Declarations
 
@@ -80,7 +80,7 @@ This product integrates and uses the following third-party open-source component
 
    Including but not limited to Vue, React, Element Plus, and related Java ecosystem dependencies, each used under its respective open-source license. All intellectual property rights belong to their respective owners.
 
-This Product only integrates and consolidates the above components. All relevant intellectual property rights belong to their respective owners. Users must comply with the applicable open-source licenses when using this Product. Shanghai Ottomi Computer Technology Co., Ltd. assumes no responsibility for intellectual property disputes or related liabilities arising from third-party components.
+This Product only integrates and consolidates the above components. All relevant intellectual property rights belong to their respective owners. Users must comply with the applicable open-source licenses when using this Product. Shanghai Oceandatum Computer Technology Co., Ltd. assumes no responsibility for intellectual property disputes or related liabilities arising from third-party components.
 
 ## Trademark and Logo Declaration
 
