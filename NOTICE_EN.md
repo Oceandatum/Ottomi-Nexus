@@ -1,13 +1,13 @@
 # NOTICE
 
 ## 目录
-- [Copyright Notice](#Copyright Notice)
-- [Embedded Third-Party Component Declarations](#Embedded Third-Party Component Declarations)
-- [Trademark and Logo Declaration](#Trademark and Logo Declaration)
-- [Usage Restrictions](#Usage Restrictions)
-- [Multi-Language Version Declaration](#Multi-Language Version Declaration)
-- [Governing Law and Dispute Resolution](#Governing Law and Dispute Resolution)
-- [Business Contact Information](#Business Contact Information)
+- [Copyright Notice](#Copyright-Notice)
+- [Embedded Third-Party Component Declarations](#Embedded-Third-Party-Component-Declarations)
+- [Trademark and Logo Declaration](#Trademark-and-Logo-Declaration)
+- [Usage Restrictions](#Usage-Restrictions)
+- [Multi-Language Version Declaration](#Multi-Language-Version-Declaration)
+- [Governing Law and Dispute Resolution](#Governing-Law-and-Dispute-Resolution)
+- [Business Contact Information](#Business-Contact-Information)
 
 ## Copyright Notice
 
