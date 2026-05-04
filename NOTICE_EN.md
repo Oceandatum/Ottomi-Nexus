@@ -1,5 +1,14 @@
 # NOTICE
 
+## 目录
+- [Copyright Notice](#Copyright Notice)
+- [Embedded Third-Party Component Declarations](#Embedded Third-Party Component Declarations)
+- [Trademark and Logo Declaration](#Trademark and Logo Declaration)
+- [Usage Restrictions](#Usage Restrictions)
+- [Multi-Language Version Declaration](#Multi-Language Version Declaration)
+- [Governing Law and Dispute Resolution](#Governing Law and Dispute Resolution)
+- [Business Contact Information](#Business Contact Information)
+
 ## Copyright Notice
 
 The copyright of Ottomi Nexus and its related functional modules (hereinafter referred to as "this Product") belongs to **Shanghai Oceandatum Computer Technology Co., Ltd.**, and is protected by relevant laws and regulations including the *Civil Code of the People's Republic of China* and the *Regulations on the Protection of Computer Software*.
@@ -92,7 +101,7 @@ Without the written permission of Shanghai Oceandatum Computer Technology Co., L
 
 ## Multi-Language Version Declaration
 
-This Product is available in **Chinese, English, Japanese, and Korean** versions. All language versions have equal legal effect and are bound by this Notice.
+This Product will be available in **Chinese, English, Japanese, and Korean** versions. All language versions have equal legal effect and are bound by this Notice.
 
 ## Governing Law and Dispute Resolution
 
