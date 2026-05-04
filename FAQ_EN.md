@@ -851,4 +851,352 @@ Specifically, the Community Edition includes all of the following core capabilit
 - Data ingestion (dozens of mainstream data sources, supports JDBC driver extension)
 - AI-assisted data governance (intelligent cataloging, aggregation, and recommendations)
 - Data quality inspection (DAMA six-dimension quality inspection)
-- Visual data
+- Visual data warehouse modeling (dimensional modeling, Cube design, metrics system)
+- Data asset management (asset cataloging, lineage tracking, asset marketplace)
+- Data security management (classification/grading, desensitization, audit logs)
+- BI data analytics and visualization
+- Fine-grained permission management (RBAC+ABAC)
+- Task scheduling engine
+- API data service generation and management
+
+The Community Edition is limited by **usage scale**: e.g., 8 users, 30 project spaces, 12 data sources, 1 compute node, etc. If your team size and data volume fall within the Community Edition limits, it can fully meet formal business usage needs.
+
+### 5.3 Can Ottomi Nexus be used without a dedicated data warehouse or big data team?
+
+Yes. Ottomi Nexus is designed specifically to lower the barrier to data governance:
+
+- **Visual operations**: All core features (data ingestion, development, warehouse modeling, analytics) are completed through a Web interface with drag-and-drop and wizard-based configuration — no complex code required.
+- **AI assistance**: Built-in AI agents assist with data cataloging, aggregation, and development, reducing manual operations.
+- **Built-in components**: 95+ development components and 84+ compute functions covering common data processing scenarios.
+- **Ready out of the box**: Built-in Demo project and sample data to quickly understand platform capabilities.
+- **Lightweight**: Runs on an 8C16G server without requiring a big data cluster.
+
+A small team or even a single person can handle the full workflow of data ingestion, governance, modeling, and analytics. That said, basic database and SQL knowledge is recommended for large-scale data processing or complex architecture design.
+
+### 5.4 What technical background is needed to deploy Ottomi Nexus?
+
+The deployment barrier is low. The following basic skills are sufficient:
+
+- Basic Linux operations (file extraction, directory navigation, process inspection).
+- Ability to install Docker and Docker Compose (the platform documentation provides installation guides).
+- Familiarity with basic Docker commands (`docker-compose up -d`, `docker logs`).
+
+No compilation or complex middleware configuration is required. Following the INSTALL.md documentation, the entire process from environment preparation to platform access takes approximately 15 minutes.
+
+Regarding daily operations:
+- **Community Edition**: Containerized deployment makes daily operations very lightweight. Basic Docker operations are sufficient for startup/shutdown, log viewing, and status monitoring — a dedicated operations person is generally not needed.
+- **Commercial editions**: For cluster deployment, performance optimization, and high-availability architecture, an operations person or official operations service is recommended.
+
+### 5.5 What operating systems does Ottomi Nexus support? Can it be installed on Windows or macOS?
+
+Ottomi Nexus currently only supports **Linux operating systems**, specifically:
+- Debian-based distributions (Ubuntu, Debian, etc.)
+- RedHat-based distributions (CentOS, RHEL, Rocky Linux, etc.)
+- Domestic operating systems (Kylin, UnionTech UOS, etc. — continuously being validated)
+
+Server architecture currently only supports **X86_64**; aarch64 is in the roadmap.
+
+**Windows and macOS direct installation is not supported.** If using Windows or macOS as a local development environment, you can experience the platform via:
+- Virtual machine (VMware, VirtualBox, etc.) with Linux installed
+- WSL2 (Windows Subsystem for Linux 2)
+
+Production environments should use Linux servers.
+
+### 5.6 Where can I download the installation package? Is it available on GitHub?
+
+The installation package is large (contains complete containerized deployment files and dependency configurations). Due to GitHub's large file limitations, the package is available through:
+
+- **GitHub Releases**: Download links are provided on the GitHub Releases page with each version release.
+- **Official website**: Available at https://www.oceandatum.com
+- **Business email**: Contact info@oceandatum.com to obtain the package or for inquiries.
+
+The installation package contains a `docker-compose.yml` configuration file and dependency initialization directory — upload to a Linux server, extract, and it's ready to use.
+
+### 5.7 What is DataHub? Why does it need to be installed before Ottomi Nexus?
+
+**DataHub** is a data metadata management and data catalog platform open-sourced by LinkedIn (Apache License 2.0). In Ottomi Nexus, it serves as the metadata service foundation.
+
+Ottomi Nexus depends on DataHub for:
+- Automatic data source metadata collection and management
+- Data asset catalog construction
+- Data lineage relationship tracking and display
+- Data asset search and discovery
+
+**Installation steps**:
+1. Install DataHub V1.30 following the official DataHub documentation.
+2. Generate a Token in DataHub (select never expires) and save it.
+3. Configure the Token in Ottomi Nexus's `docker-compose.yml`.
+4. Start Ottomi Nexus — it will automatically connect to the DataHub metadata service.
+
+DataHub installation documentation is linked in the INSTALL.md file.
+
+### 5.8 Does installing Ottomi Nexus require internet access? Can it be installed in a fully air-gapped environment?
+
+Both deployment modes are fully supported:
+
+**Online deployment** (server has network access):
+- Pull Docker images online with automatic dependency resolution.
+- Server must be able to access Docker image registries (configuring a Docker mirror accelerator is recommended for domestic networks).
+
+**Offline deployment** (server completely air-gapped):
+- **Step 1**: Pull all images on a networked server and export them as an offline installation package (image files).
+- **Step 2**: Copy the offline package to the target intranet server.
+- **Step 3**: Import images using `docker load -i`, then run the installation startup command.
+- No external network access required throughout; no data leaves the network.
+
+Offline deployment is especially suitable for government, military, and financial environments with strict network isolation requirements.
+
+### 5.9 Do the Community and Commercial editions use the same installation package? Does upgrading require reinstallation?
+
+Yes, all three editions use the **exact same installation package**.
+
+**Upgrading from Community to Commercial Edition** requires no reinstallation:
+1. Generate an environment code in the platform's management center (based on server MAC address and other hardware information).
+2. Submit the environment code to the official team to receive the corresponding activation code.
+3. Enter the activation code in the platform to unlock the corresponding resource limits.
+4. **All existing data, configurations, and project spaces are fully retained** — no migration needed.
+
+Upgrading from Professional to Enterprise Edition works the same way: replace with the unlimited global License while retaining all existing configurations and data.
+
+### 5.10 What additional configuration is needed for AI features? Can Community Edition users use them?
+
+Community Edition users **can fully use** AI intelligent assistance features, but need to configure large model access themselves.
+
+**Configuration method**:
+- In the platform's AI Intelligence Center, configure a connection to a public internet large model API (e.g., Qwen, ERNIE Bot, etc.) or a privately deployed large model.
+- AI assistance capabilities are available immediately after configuration.
+
+**Current AI capabilities include**:
+- **Data aggregation agent**: AI-assisted aggregation operations.
+- **Data development agent**: AI-assisted data quality inspection, development, and ETL workflow building.
+- Built-in prompt templates with online editing and customization support.
+- LangChain intelligent orchestration supporting large model + multi-tool collaboration.
+
+**Note**: Large model API call costs are charged by the model service provider and are unrelated to Ottomi Nexus product fees.
+
+### 5.11 Does Ottomi Nexus support real-time data processing, or only offline batch processing?
+
+Ottomi Nexus supports both **real-time and offline** data processing modes:
+
+**Offline batch processing**:
+- Full/incremental data sync.
+- Scheduled batch task execution.
+- Suitable for T+1 data warehouse scenarios.
+
+**Real-time data processing**:
+- Real-time database change capture via CDC (Change Data Capture) mechanism.
+- Real-time data stream ingestion via Kafka and other message queues.
+- Real-time aggregation and stream-batch unified processing.
+
+You can flexibly choose real-time or offline mode based on business needs, or mix both modes within the same project.
+
+### 5.12 What is the level of built-in BI analytics? Can it replace a dedicated BI tool?
+
+Ottomi Nexus has built-in data analytics and visualization capabilities based on **DataEase** (an open-source BI platform by FlyCloud), meeting enterprise daily data analytics and report display needs:
+
+- **Visual drag-and-drop report building** — no code required.
+- Supports multiple chart types (bar charts, line charts, pie charts, dashboards, etc.).
+- Supports data large-screen construction.
+- Rich built-in data visualization components.
+
+**Applicable scenarios**:
+- Internal enterprise daily data dashboards and operational reports.
+- Department-level data analytics and visualization.
+- Rapid prototyping and POC validation.
+
+**Positioning note**: The built-in BI in Ottomi Nexus focuses on the "analytics display" phase of the full data platform chain, best used in conjunction with data governance and warehouse modeling capabilities. For highly specialized and complex BI needs (e.g., fine-grained report permission management, complex nested reports), Ottomi Nexus data can also be connected to other professional BI tools via API.
+
+### 5.13 What multi-language versions are available? Can overseas teams use it?
+
+Ottomi Nexus currently provides **Chinese, English, Japanese, and Korean** language versions with identical features across all languages.
+
+**Overseas team usage**: Fully supported. The platform supports private deployment on overseas servers with no data leaving the country. Note:
+- The official technical support team primarily serves in Chinese; English communication can be directed to the business email.
+- Product documentation is currently primarily in Chinese; other language documentation is being continuously developed.
+
+### 5.14 Will Community Edition data be locked? Can existing data be retained when upgrading to Commercial Edition?
+
+**Data will not be locked, and all existing data is fully retained.**
+
+- All data generated during Community Edition use (data source configurations, project spaces, data models, scheduled tasks, asset information, etc.) is fully available after upgrading to a commercial edition.
+- The upgrade process only involves entering an activation code to unlock resource limits — no data migration or reinstallation required.
+- Commercial edition perpetual licenses are valid indefinitely; mainline version feature upgrades are free.
+- Upon annual service expiration without renewal, only manual technical support and Case access are disabled — **already-unlocked software resources and data are not locked**.
+
+### 5.15 Can individual resource dimensions be expanded separately if Community Edition limits are insufficient?
+
+**Upgrade model**:
+
+- Community Edition → Professional Edition: Can unlock single or multiple dimensions with bundled discounts across four dimensions: parallel compute nodes, personnel and collaboration scale, data processing scale, and scheduling and service scale.
+- Professional Edition → Enterprise Edition: All resource limits are removed at once.
+
+If your needs are right at the limit of a single Community Edition dimension, contact info@oceandatum.com to discuss specific requirements — the official team can provide flexible solutions based on actual circumstances.
+
+### 5.16 What are the advantages of Ottomi Nexus over traditional commercial data platform products?
+
+| Comparison Dimension | Traditional Commercial Data Platforms | Ottomi Nexus |
+| -------------------- | ------------------------------------- | ------------ |
+| **Deployment** | Typically SaaS or heavyweight private deployment with long implementation cycles. | Single-package containerized deployment, online in 15 minutes. |
+| **Ease of use** | Requires professional big data teams with steep learning curves. | Visual drag-and-drop operations; small teams can get started. |
+| **Data sovereignty** | In SaaS mode, data is in the cloud with compliance risks. | 100% private deployment; data fully retained on enterprise premises. |
+| **AI capabilities** | Some platforms charge extra for AI features or have restrictions. | Built-in AI Intelligence Center available in Community Edition. |
+| **Cost structure** | High procurement costs, typically starting at millions. | Community Edition free forever; commercial editions purchased as needed. |
+| **Adaptability** | Highly standardized with high customization costs. | Supports rapid customization for industry scenarios with lightweight flexible architecture. |
+| **Offline environments** | Most depend on cloud services. | Fully supports air-gapped intranet and offline environments. |
+| **Xinchuang adaptation** | Partial support. | Deep adaptation to domestic OS and databases; passed multiple Xinchuang certifications. |
+
+Ottomi Nexus is best suited for **SMEs and government/enterprise units that need data autonomy and control, want low-cost rapid deployment, and have requirements for private deployment and offline environments**.
+
+### 5.17 How frequently is the platform updated? Can Community Edition users get new features promptly?
+
+- Official continuous iteration and maintenance with periodic version updates.
+- Updates include bug fixes, performance optimization, and core feature enhancements.
+- **All editions (including Community Edition) can download the latest installation package for upgrades** — mainline iteration versions are free.
+- Version releases are based on GitHub Releases.
+
+Community Edition and commercial edition users receive the **same version software** with fully synchronized feature updates. The only difference: commercial edition users can enjoy official assisted upgrade services, while Community Edition users perform upgrades independently.
+
+### 5.18 How costly is data migration? Is switching from another data platform to Ottomi Nexus complex?
+
+Migration cost depends on the complexity of your current data environment, but the overall migration process is relatively straightforward:
+
+**Lightweight migration** (e.g., from Excel/CSV or a single database):
+- Directly register the data source in Ottomi Nexus and configure data sync tasks.
+- No migration scripts required.
+
+**Medium complexity migration** (e.g., existing multiple data sources and data warehouses):
+- Ottomi Nexus natively supports dozens of mainstream data source types for direct integration without replacing existing databases; for data sources not yet built-in, simply provide a JDBC driver for quick extension.
+- Existing warehouse models can be visually rebuilt in the platform.
+- The system supports replacing existing data processing scripts with visual ETL development, or using SQL, Python, Java, and other script components to run existing scripts directly. However, rebuilding data development models using built-in components is recommended — built-in components are not tied to specific database types, so if the database needs to change in the future, models can run on different databases without modification.
+
+**General migration steps**:
+
+1. Deploy Ottomi Nexus.
+2. Register existing data source connections.
+3. Configure data aggregation tasks to sync existing data to the platform.
+4. Rebuild warehouse models and business processes in the platform.
+5. Configure data services and API connections to downstream systems.
+
+Ottomi Nexus is positioned as "integration" rather than "replacement" — your existing databases and systems remain unchanged; Ottomi Nexus manages them uniformly at the upper layer.
+
+### 5.19 Is data security guaranteed for Community Edition users? Does the product collect or transmit any data?
+
+Data security is a core design principle of Ottomi Nexus, and Community Edition users enjoy the same complete security guarantees:
+
+- **Fully local data**: All data and processing services run on your own servers/intranet, with no dependency on any external cloud services.
+- **No data transmission**: Ottomi Nexus **does not collect, transmit, or externally send any user data** to official servers or third parties.
+- **Complete security capabilities**: The Community Edition includes full classification/grading automatic scanning, desensitization engine, dual-sandbox isolation, and full-chain audit logs.
+- **Encryption support**: Supports SM2/SM3/SM4 national cryptographic algorithm encrypted storage.
+- **Compliance adaptation**: Deep adaptation to Data Security Law, Personal Information Protection Law, and GDPR requirements.
+
+Simply put: deployed on your own server, data is entirely under your control.
+
+### 5.20 How to quickly validate whether Ottomi Nexus fits our needs? Is there a demo environment?
+
+The following validation methods are available:
+
+**1. Self-deploy and experience (recommended)**:
+- Prepare an 8C16G Linux server.
+- Follow the INSTALL.md documentation — approximately 15 minutes to complete deployment.
+- After deployment, the platform has a **built-in complete Demo project and demo data space** — experience the full workflow out of the box without preparing test data.
+
+**2. Feature trial suggestions**:
+- Browse the built-in Demo project to understand the platform's overall feature layout.
+- Create a test project space.
+- Connect an existing data source (e.g., MySQL) to experience data aggregation.
+- Try configuring a data quality inspection rule.
+- Build a simple ETL workflow in the data development canvas.
+- Experience data asset management and lineage tracking.
+
+**3. Business engagement**:
+- For product demonstrations, in-depth discussions, or POC support, contact info@oceandatum.com to arrange.
+
+An online demo environment is being prepared — stay tuned.
+
+### 5.21 How does the product perform in Xinchuang environments? Are there any success stories?
+
+Ottomi Nexus has substantial Xinchuang environment deployments:
+
+**Xinchuang adaptation**:
+- Domestic OS: Adapted for Debian/RedHat-based domestic operating systems with continuous full-feature validation in Xinchuang labs.
+- Domestic databases: Supports DM (Dameng), KingbaseES, OceanBase, GBase, Inceptor, ArgoDB, StarRocks, etc.
+- Domestic encryption: Supports SM2/SM3/SM4 national cryptographic algorithms.
+- Passed multiple Xinchuang certifications, meeting government and enterprise compliance requirements.
+
+**Selected benchmark cases**:
+- **Government**: Deployed in Shanghai, Nanjing, Qingdao, Beijing, Chengdu, and other cities, supporting cross-department data sharing, data element circulation, and public data resource aggregation.
+- **Transportation**: Deployed at Pudong Airport and other locations, supporting real-time IoT device data processing.
+- **Finance**: Customer asset integration, transaction data compliance auditing.
+- **Manufacturing**: Full-chain production data governance, supply chain collaboration.
+
+For specific case details, contact info@oceandatum.com.
+
+### 5.22 Does it support Kubernetes (K8s) deployment?
+
+The current version of Ottomi Nexus is based on **Docker / Docker Compose** containerized deployment and does not natively provide a Kubernetes deployment solution.
+
+For enterprises with existing K8s infrastructure:
+- Docker Compose service configurations can be manually converted to K8s resource manifests (Deployment, Service, ConfigMap, etc.) for deployment.
+- This approach requires K8s operations experience and is not officially natively supported.
+
+Native K8s deployment support is under consideration for future planning. Contact the official team to provide feedback if there is strong demand.
+
+### 5.23 What should be noted about Docker mirror source configuration? What to do if image pulls fail on domestic networks?
+
+When deploying online on domestic servers, Docker image pulls may fail due to network issues. Configuring a Docker mirror accelerator in advance is recommended:
+
+**Configuration method**:
+Modify or create `/etc/docker/daemon.json` and add mirror accelerator configuration:
+
+```json
+{
+  "registry-mirrors": [
+    "https://<mirror-accelerator-address>"
+  ]
+}
+```
+
+Restart Docker after configuration: `systemctl restart docker`
+
+**If pulls still fail**:
+- Check server network proxy settings.
+- Confirm the firewall allows the ports required by Docker.
+- If network conditions are limited, use **offline deployment mode**: pull images in a networked environment, export them, then copy and import on the target server.
+
+### 5.24 What are the default admin credentials? Must they be changed after deployment?
+
+- **Default account**: admin
+- **Default password**: 1qaz@WSX
+
+**Strongly recommended to change the default password immediately after first login.** Reasons:
+- The default password is public information (documented), leaving it unchanged is a security risk.
+- Production deployments should follow security best practices with strong passwords.
+- Password can be changed in personal settings after login.
+
+For further security hardening:
+- Configure firewall access whitelists to allow only specified IPs to access port 6626 (default port; a method to change it will be provided in the future).
+- Configure Nginx reverse proxy with HTTPS for production environments.
+- Regularly check system audit logs and monitor abnormal login behavior.
+
+### 5.25 What does the built-in Demo project contain? What features can it help me understand?
+
+After deployment, the platform has a built-in complete **Demo project and Demo data space** — core features can be experienced without preparing additional test data:
+
+**Feature modules covered by the Demo project**:
+- **Data source integration examples**: Demonstrates how to register and configure heterogeneous data source connections.
+- **Data aggregation**: Demonstrates data aggregation task configuration and execution.
+- **Data governance**: Demonstrates quality inspection rule configuration, data standards management, and classification/grading scanning.
+- **Data development**: Demonstrates the visual ETL development canvas and development component usage.
+- **Data warehouse modeling**: Demonstrates dimensional modeling, fact table construction, and metrics system configuration.
+- **Data asset management**: Demonstrates asset catalog, lineage tracking, and asset value assessment.
+- **Permission management**: Demonstrates role configuration, data permission assignment, and approval workflows.
+
+New users are recommended to browse the Demo project's configurations and feature layout after first login to build a basic understanding of the platform's overall capabilities, then create an independent project space for hands-on work based on their own business needs.
+
+---
+
+## 6. Official Contact
+
+- **Business email**: info@oceandatum.com
+- **Official website**: https://www.oceandatum.com
+- **Community support**: [GitHub Issues](https://github.com/Oceandatum/Ottomi-Nexus)
