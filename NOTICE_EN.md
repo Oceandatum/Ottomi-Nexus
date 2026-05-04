@@ -8,6 +8,7 @@
 - [Multi-Language Version Declaration](#Multi-Language-Version-Declaration)
 - [Governing Law and Dispute Resolution](#Governing-Law-and-Dispute-Resolution)
 - [Business Contact Information](#Business-Contact-Information)
+- [Disclaimer](#Disclaimer)
 
 ## Copyright Notice
 
