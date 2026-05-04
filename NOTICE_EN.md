@@ -12,33 +12,29 @@ Shanghai Ottomi Computer Technology Co., Ltd. reserves the right of final interp
 
 This Product integrates and uses the following third-party open-source components:
 
-1. **DataEase** (FIT2CLOUD)
+1.**DataEase (FIT2CLOUD)**
 
-   Governed by the **GPL-3.0** open-source license. Intellectual property rights belong to FIT2CLOUD.
+Licensed under the GPL-3.0 open-source license. All intellectual property rights belong to FIT2CLOUD. This product only integrates and embeds DataEase without modifying its original source code. The use of this product shall be deemed acceptance of the relevant terms of the GPL-3.0 license. It is strictly prohibited to separately extract the DataEase component for commercial sales, relicensing or other infringing acts. Violators shall assume corresponding legal liabilities.
 
-   This Product only integrates and embeds DataEase **without modifying its original source code**. By using this Product, users are deemed to have agreed to comply with the terms of the GPL-3.0 license. Extracting the DataEase component separately for commercial sale, re-licensing, or any other infringing acts is strictly prohibited. Violators will be held legally liable.
+2.**Apache DolphinScheduler**
 
-2. **Apache DolphinScheduler**
+Licensed under the Apache License 2.0. All intellectual property rights belong to the Apache Software Foundation. This product has modified and extended the source code of this component, and the modified version still complies with the original open-source license. This license allows commercial use, modification and distribution.
 
-   Governed by the **Apache License 2.0**. Intellectual property rights belong to the Apache Software Foundation.
+3.**Apache SeaTunnel**
 
-   This Product **has modified and extended the source code of this component**. The modified version continues to comply with the original open-source license. This license permits commercial use, modification, and distribution.
+Licensed under the Apache License 2.0. All intellectual property rights belong to the Apache Software Foundation. This product has modified and extended the source code of this component, and the modified version still complies with the original open-source license. This license allows commercial use, modification and distribution.
 
-3. **Apache SeaTunnel**
+4.**MinIO**
 
-   Governed by the **Apache License 2.0**. Intellectual property rights belong to the Apache Software Foundation.
+Licensed under the GNU AGPLv3 open-source license. All intellectual property rights belong to MinIO, Inc. This product is only integrated as a distributed object storage service without modifying its original source code, and is used for unified storage and management of multimodal documents and various files. Users shall abide by the constraints of the corresponding open-source license.
 
-   This Product **has modified and extended the source code of this component**. The modified version continues to comply with the original open-source license. This license permits commercial use, modification, and distribution.
+5.**DataHub (LinkedIn)**
 
-4. **DataHub** (LinkedIn)
+Licensed under the Apache License 2.0. All intellectual property rights belong to the original project party. This product has modified and extended the source code of this component, and the modified version still complies with the original open-source license. This license allows commercial use, modification and distribution.
 
-   Governed by the **Apache License 2.0**. Intellectual property rights belong to the original project owners.
+6.**General Front-end and Back-end Open Source Components**
 
-   This Product **has modified and extended the source code of this component**. The modified version continues to comply with the original open-source license. This license permits commercial use, modification, and distribution.
-
-5. **General Frontend and Backend Open-Source Components**
-
-   Including but not limited to Vue, React, Element Plus, and Java ecosystem dependency libraries, all of which are governed by their respective open-source licenses with intellectual property rights belonging to their original owners.
+Including but not limited to Vue, React, Element Plus and Java ecosystem-related dependency libraries. All of them are subject to their respective open-source licenses, and all intellectual property rights belong to the original right holders.
 
 
 This Product only integrates and consolidates the above components. All relevant intellectual property rights belong to their respective owners. Users must comply with the applicable open-source licenses when using this Product. Shanghai Ottomi Computer Technology Co., Ltd. assumes no responsibility for intellectual property disputes or related liabilities arising from third-party components.
@@ -59,7 +55,7 @@ This Product is available in **Chinese, English, Japanese, and Korean** versions
 
 This Notice and the use of this Product are **governed by the laws of the People's Republic of China**.
 
-Any disputes arising from the use of this Product shall first be resolved through friendly negotiation between the parties. If negotiation fails, either party has the right to file a lawsuit with the **people's court having jurisdiction in the place where Shanghai Ottomi Computer Technology Co., Ltd. is registered**.
+Any disputes arising from the use of this Product shall first be resolved through friendly negotiation between the parties. If negotiation fails, either party has the right to file a lawsuit with the **people's court having jurisdiction in the place where Shanghai Oceandatum Computer Technology Co., Ltd. is registered**.
 
 ## Business Contact Information
 
