@@ -354,4 +354,501 @@ The R&D Center, Quality Management Center (including quality inspection and gove
 
 #### Relationship Between Business Planning and Project Spaces
 
-The **Business Planning** module includes **business segment** and **subject domain** construction. Users can create business segments and subject domains
+The **Business Planning** module includes **business segment** and **subject domain** construction. Users can create business segments and subject domains , then create corresponding project spaces. Project spaces can add and manage project members.
+
+#### Project Space Modes
+
+Project spaces have 2 modes:
+
+1. **Dev-Prod Mode (Dual-Sandbox Mode)**: Generates mutually linked Dev development and Prod production environments. Uses the sample engine to pull and generate sample data from the production environment for development; after development models are completed and go online, they can be published to the production space. The production space contains real production data, but data browsing permissions can be restricted from developers — developers can only view models, reducing the risk of data leakage.
+
+2. **Basic Mode (Single-Sandbox Mode)**: Development and production share a single sandbox.
+
+#### Project Space Module Selection
+
+Newly created project spaces can select modules included in the R&D Center. The **Data Modeling** module requires selecting a business segment before it can be used.
+
+---
+
+## 3. Architecture & Technical Integration FAQ
+
+### 3.1 Overall technical architecture, core components, and design philosophy of Ottomi Nexus
+
+**Design philosophy**: Based on a framework of "**atomic components + parallel computing architecture + visual workflow orchestration + data processing closed loop**", driven by DataOps at its core, **achieving full-domain capability decoupling through componentization**, ensuring independent iteration, flexible combination, and on-demand assembly of each business module.
+
+**Technical architecture layers**:
+
+- **Data ingestion layer**: Front-end machine cataloging and aggregation (Ottomi-Atlas), multi-source heterogeneous data ingestion (dozens of mainstream data sources, supports extension via JDBC drivers).
+- **Data storage and compute layer**: Distributed parallel computing engine (Ottomi-Engine), distributed task scheduling engine.
+- **Data governance layer**: Data quality management (Ottomi-Guardian), data standards management, classification and grading, data security (Ottomi-Secure).
+- **Data development layer**: Visual ETL development (Ottomi-Forge), data warehouse modeling (Ottomi-Metrix), machine learning.
+- **Data asset layer**: Data asset management (Ottomi-Vault), data lineage, relationship graph, tag center.
+- **Data service layer**: Data sharing hub (Ottomi-ShareLink), automatic API generation and management, dynamic desensitization.
+- **Trusted Data Space** (Ottomi-TrustForge): Zero-trust architecture, connector management, sample engine.
+
+### 3.2 Underlying tech stack, dependent middleware, and integrated open-source components
+
+**Core tech stack**:
+
+- Cloud-native containerized architecture (Docker / Docker Compose).
+- Distributed parallel computing and storage.
+- Microservices architecture with independent deployment and scaling per module.
+
+**Deeply integrated open-source components**:
+
+| Component               | License     | Purpose                                      |
+| ----------------------- | ----------- | -------------------------------------------- |
+| Apache SeaTunnel        | Apache 2.0  | Data integration and migration|
+| Apache DolphinScheduler | Apache 2.0  | Distributed task scheduling                  |
+| DataHub                 | Apache 2.0  | Metadata management and data catalog         |
+| DataEase                | GPL-3.0     | BI data analytics and visualization|
+| MinIO                   | AGPLv3      | Distributed object storage for documents and files. MinIO is deployed independently, runs as a separate process, accessed via API (aggregated) — MinIO source code is not modified. |
+
+Full component list and license declarations are in [NOTICE](./NOTICE).
+
+**Prerequisites**:
+
+- Docker v28.3.3 or above.
+- Docker Compose v2.36.1 or above.
+- DataHub V1.30 (metadata service).
+
+### 3.3 Xinchuang environment compatibility, domestic databases, and domestic server support
+
+- **Domestic operating systems**: Adapted for Debian/RedHat-based domestic OS, with continuous full-feature validation in Xinchuang labs.
+- **Domestic databases**: Supports DM (Dameng), KingbaseES, OceanBase, GBase, Inceptor, ArgoDB, StarRocks, etc.
+- **Server architecture**: Currently supports X86_64; aarch64 support is in the roadmap.
+- The platform has passed multiple Xinchuang certifications, meeting government and enterprise compliance requirements.
+
+### 3.4 Dual-sandbox mechanism and RBAC+ABAC unified permission architecture
+
+**Dual-sandbox mechanism**:
+
+- Each project space can be configured with independent **development sandbox** and **production sandbox** dual environments, or a single integrated sandbox as needed — flexible deployment to fit different business scales.
+- The development environment uses desensitized simulated sample data by default; developers never touch raw sensitive business data, building a data security baseline at the environment level.
+- All development, debugging, model orchestration, and task configuration are confined to the development sandbox; after validation, they are uniformly deployed to the production sandbox via a standardized release process.
+- Physical isolation between development and production environments effectively prevents accidental operations, data leakage, and logic conflicts.
+
+**Permission architecture**:
+
+- The platform builds a unified identity authentication system for global account management, unified login, and unified authorization.
+- **RBAC** (Role-Based Access Control): Preset multiple roles, supports customization.
+- **ABAC** (Attribute-Based Access Control): Supports fine-grained permissions at data source, table, column, and row levels.
+- Complete permission approval workflow: Full lifecycle management of data requests, approvals, subscriptions, and authorizations.
+
+**Sandbox data processing and data warehouse full-chain flow**:
+
+Global unified data warehouse layering, independent project space isolation, project-specific compute sources (ADS metrics layer), and global asset unified management form a complete, actionable data closed loop.
+
+1. Global standard data warehouse chain: `Business source systems → ODS raw layer → DWD detail standard layer`
+2. Project-specific compute source: Each project space has an independent compute source database, equivalent to a **project-specific ADS metrics layer**, used to store metrics, dimension tables, and statistical results for the current subject domain.
+3. Data isolation rules: Each project space's data is naturally isolated; all business subject projects uniformly obtain clean data from the global DWD detail layer.
+4. Global asset management: The platform distinguishes between asset management and asset marketplace modules, enabling unified search and viewing of raw datasets, cataloged resources, and each project's compute source metrics and dimension table assets.
+
+#### 3.4.1 Large Complex Architecture (Enterprise-grade · Full Role Separation · Standard Dual-Sandbox)
+
+Suitable for large enterprises, multi-department collaboration, high data governance requirements, and strict role separation.
+
+**1) Dedicated public project spaces (platform-side unified governance)**
+
+- **Data aggregation dedicated space**: Managed by dedicated aggregation personnel, uniformly connecting all business heterogeneous data sources, completing data sync and ingestion, and settling raw data into the **global ODS raw layer** — preserving source data in its original form as the unified data foundation for the entire platform.
+- **Data quality inspection dedicated space**: Configured with independent quality inspection permissions and a dedicated QA team, accessing only full ODS real data to perform completeness, consistency, standardization, and business logic validation; after data cleansing, standardization, and dirty data governance, high-quality data is uniformly loaded into the **global DWD detail standard layer**. ODS and DWD are global shared base layers and the unified data source for all business projects.
+
+**2) Business subject project spaces (business-side modeling output)**
+
+- Spaces are isolated by subject domain; each business project defaults to **dual-sandbox strong isolation mode**.
+- All business projects **prohibit direct connection to business sources or the ODS layer**, uniformly extracting subject-relevant clean data from the global DWD detail layer to ensure consistent calibration and controllable data quality.
+- Standard dual-sandbox flow:
+  - Production sandbox: Stores referenced DWD standard detail data as the globally trusted baseline.
+  - Sample desensitization sync: Developers use the platform's sample engine to extract limited data samples with custom settings, processed through privacy desensitization and computability transformation, then synced to the development sandbox.
+  - Offline development and modeling: All script development, model design, metrics processing, and task debugging are completed entirely within the development sandbox.
+  - One-click publish: After model and job acceptance, uniformly published to the corresponding project's production sandbox.
+  - Permission isolation: Developers can only view models and task configurations — **no access to raw production data**.
+
+**3) Project-specific ADS compute source output**
+
+Each project's production sandbox has a dedicated **independent compute source database (project-level ADS layer)**; processed business metrics, dimension tables, report results, and subject summary data are uniformly stored in the current project's ADS layer, achieving subject data isolated storage and independent operations.
+
+**4) Global asset unified management**
+
+The platform's asset management module uniformly manages: ODS raw datasets, DWD standard details, each project's independent ADS compute sources, dimension tables, and metrics assets. Through asset cataloging, tagging, and search capabilities, all data assets are queryable, manageable, and traceable across the platform; the asset marketplace supports cross-project compliant sharing.
+
+```mermaid
+flowchart LR
+    A["Business Source Systems"] --> B["Public Aggregation Space — ODS Raw Layer"]
+    B --> C["Public QA Space — DWD Detail Layer"]
+    C --> D["Subject Project Space — Production Sandbox"]
+    D --> E["Sample Engine — Desensitized Extraction"]
+    E --> F["Development Sandbox — Modeling & Debugging"]
+    F -->|Publish| D
+    D --> G["Project Independent Compute Source — ADS"]
+```
+
+#### 3.4.2 Medium General Architecture (Government & Enterprise Standard · Hybrid Flexible)
+
+Suitable for government/enterprise units and mid-size companies where roles can be merged, governance is moderately standardized, and both security and efficiency are balanced.
+
+1. **Simplified public governance**: Data aggregation and quality inspection can be merged into **one public project space**, retaining the `ODS → DWD` standard layering to ensure basic data governance capability is not lost.
+2. **Flexible sandbox selection**: Core sensitive subject projects use **dual-sandbox isolation**; ordinary analytics and non-sensitive business projects use **single-sandbox integrated mode** to simplify operations.
+3. **Data source rules unchanged**: All business projects still use the global DWD detail layer as the unified data source to ensure consistent calibration; a small number of non-core scenarios may simplify the chain as needed.
+4. **Compute source and asset logic unchanged**: Each project space still has an independent ADS compute source layer with metrics and dimension tables isolated by subject; global assets are uniformly cataloged, and asset management and marketplace functions are fully reused.
+
+```mermaid
+flowchart LR
+    A["Business Source"] --> B["Public Integrated Space — ODS-DWD Unified Governance"]
+    B --> C["Core Project — Dual Sandbox"]
+    B --> D["General Project — Single Sandbox"]
+    C --> E["Independent ADS Compute Source"]
+    D --> F["Independent ADS Compute Source"]
+```
+
+#### 3.4.3 Lightweight Simple Architecture (Community Edition · Integrated Minimal)
+
+Suitable for small teams, department-level applications, rapid deployment, and scenarios without strict role separation — the default form for the Community Edition.
+
+1. **Minimal environment architecture**: Globally uses **single-sandbox integrated mode**, no longer splitting independent development and production environments; relies on RBAC+ABAC fine-grained permissions for logical isolation.
+2. **Greatly simplified chain**: Complex layering can be weakened as needed — the simplest mode directly connects to business source systems for data ingestion; the standard simplified mode retains basic ODS settlement with lightweight quality inspection before direct project use.
+3. **Project construction approach**: No separate public governance space; data ingestion, lightweight quality inspection, model development, and metrics output are all completed in a unified environment. A single person or small team can handle the full workflow and quickly complete data analytics and report building.
+4. **Core product capabilities retained**: Even in minimal deployment, the **project-independent compute source (ADS)** design is retained, with metrics and dimension tables isolated by project; basic asset cataloging, asset search, and resource transparency capabilities are fully retained for smooth future scaling.
+
+```mermaid
+flowchart LR
+    A["Business Source / Simple ODS"] --> B["Unified Single-Sandbox Environment"]
+    B --> C["Project Lightweight Modeling"]
+    C --> D["Project Independent ADS Compute Source"]
+```
+
+#### 3.4.4 Summary of Core Logic Across Three Modes
+
+| Core Logic         | Description|
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Unified foundation | Regardless of mode, the global `ODS raw layer + DWD standard detail layer` serves as the shared foundation, ensuring data and quality consistency.|
+| Project isolation  | All business subjects use independent project spaces as carriers; data is naturally isolated with dual-sandbox or single-sandbox selected as needed.          |
+| Independent compute source | Each project has a dedicated ADS compute source layer for unified storage of metrics, dimension tables, and business result data.                    |
+| Elastic governance | Large-scale full role separation, medium merged and balanced, small-scale minimal lightweight — three plans matched as needed.                               |
+| Global assets      | Unified asset management and marketplace; raw data, standard details, and project metrics assets are all manageable, queryable, and shareable across the platform. |
+| Full edition coverage | Fully adapts to the differentiated deployment needs of Community, Professional, and Enterprise editions.                                                  |
+
+### 3.5 How to integrate multimodal capabilities, AI Intelligence Center, and knowledge base?
+
+**Multimodal processing (with room for improvement)**:
+
+- **Text**: Keyword extraction, summarization.
+- **Image**: Object recognition, scene recognition (via multimodal large model capabilities).
+- **Audio/Video**: Speech-to-text, video content analysis.
+- **OCR recognition**: Document recognition and unstructured data processing.
+
+**Future open plans**: Multimodal comprehensive search, etc.
+
+**AI Intelligence Center**:
+
+- **Large model configuration**: Configure connections to public internet large models or privately deployed large models.
+- **Intelligent agents**: Currently provides a data aggregation agent and a data development agent, with built-in and online-editable prompt templates.
+- **LangChain toolchain**: Leveraging LangChain intelligent orchestration capabilities combined with a self-encapsulated full toolchain and platform APIs, building domain-specific data intelligent agents. Supports flexible prompt editing, session management, and AI full-process assistance for data aggregation, development, and quality inspection through large model + multi-tool collaboration.
+
+**Future open plans**: The Intelligence Center will open APIs, MCP extensions, Skills plugin mechanisms, and supporting development examples, enabling third parties to build custom applications on the platform.
+
+### 3.6 MCP/API interface capabilities and third-party system integration (coming soon)
+
+**API service capabilities**:
+
+- Automatic data API generation: Automatically encapsulates data tables as REST APIs through wizard-based configuration.
+- API marketplace management: API publishing, registration, version management, traffic monitoring.
+- Dynamic desensitization: Automatic data desensitization during API calls.
+- Full-chain auditing: API call logs, monitoring and alerting.
+
+**Third-party system integration**:
+
+- Supports integration with external systems via API interfaces.
+- Supports direct database connection integration.
+- Supports real-time data stream integration via message queues (Kafka, etc.).
+- MCP (Model Context Protocol) standard interfaces will be opened in the future to support AI Agent integration.
+
+### 3.7 Cluster deployment, distributed architecture, and high-availability deployment
+
+- **Single-node deployment**: Suitable for department-level use or POC validation (minimum 8C16G).
+- **Cluster deployment**: Professional Edition supports 2+ nodes, scalable on demand; Enterprise Edition supports unlimited scaling.
+- **High availability**: Built-in distributed parallel computing engine and task scheduling engine; compute nodes can be self-configured on the node management page, supporting elastic scaling.
+- **Containerized**: Docker-based containerized deployment with independent scaling per microservice module.
+
+Enterprise Edition is recommended to configure higher-spec servers to support large-scale computation.
+
+### 3.8 Heterogeneous data fusion, cross-database joins, and data warehouse modeling
+
+**Heterogeneous data fusion**:
+
+- Natively supports unified ingestion and automatic field mapping for dozens of mainstream data source types; for data sources not yet built-in, simply provide a JDBC driver with simple dialect adaptation and table creation statement compatibility to integrate.
+- Supports unified management of structured data (relational databases) and unstructured data (documents, images, audio/video).
+- Real-time and offline lakehouse integration: Unified processing of streaming and batch data.
+
+**Data warehouse modeling**:
+
+- Based on Kimball dimensional modeling theory.
+- Visual construction of dimension tables and fact tables.
+- Drag-and-drop multi-dimensional Cube design, supporting slicing, roll-up, and drill-down.
+- Three-tier metrics system: atomic metrics, derived metrics, and composite metrics.
+- Users can select any system-compatible database as the data warehouse storage.
+
+**Does Ottomi Nexus restrict which database is used as the data warehouse?**
+
+**Full ecosystem, no binding**: Not limited to the Hadoop ecosystem — fully compatible with MySQL, Oracle, SQL Server, Doris, Greenplum, Hive, and other relational, MPP, and big data warehouses. Any database can serve as the business data warehouse foundation.
+
+**What type of database does Ottomi Nexus use for its own configuration database?**
+
+MySQL is recommended as the system configuration database. Ottomi Nexus has previously adapted to PostgreSQL and Oracle as configuration databases, but as features iterate, detailed validation is required.
+
+For domestic databases, DM (Dameng) is recommended as the system configuration database.
+
+Commercial edition users who need to use other database types as the configuration database can contact info@oceandatum.com for adjustments.
+
+### 3.9 Secondary development extension methods and custom component development standards
+
+At the current stage, secondary development is primarily achieved through:
+
+- Ottomi Nexus adopts a modular architecture design, supporting functional extension via **custom components** while reserving standardized integration interfaces for data interoperability and capability linkage with external business systems. The **core API documentation and open capabilities** for developers are still being refined and have not been officially released. For deep secondary development needs, contact us through the technical support channel to learn about the architecture design and development specifications in advance.
+- Use the platform's built-in visual development components to build custom data processing workflows.
+
+Planned future extension methods:
+
+- Intelligence Center API / MCP standard interfaces supporting third-party custom application development.
+- Skills plugin mechanism.
+- Open-source application modules available for secondary development.
+
+Note: Decompiling, reverse engineering, or redistributing core modules without official written authorization is strictly prohibited. See [CONTRIBUTING](./CONTRIBUTING.md) for details.
+
+### 3.10 Data security, isolation strategy, and sensitive data governance design
+
+- **Classification and grading**: Automatic identification and scanning with a built-in classification and grading rule library.
+- **Encrypted storage**: Encrypted storage at the aggregation end, supporting SM2/SM3/SM4 national cryptographic algorithms.
+- **Desensitization**: Development environments use desensitized simulated data; API calls support dynamic desensitization.
+- **Dual-sandbox isolation**: Physical isolation between development and production environments; development sandbox can use sample data.
+- **Multi-level permission management**: Builds a **three-tier permission system of system permissions, project permissions, and data permissions**; system permissions control menu page and feature button access by role; project permissions achieve project member isolation and intra-project data boundary management; data permissions cover data source management authorization, table-level, row-level, and column-level fine-grained permission management.
+- **Process audit trail**: Full electronic retention of data requests and approval workflows, with complete and traceable operation records.
+- **API security protection**: Full API interface log monitoring, configurable access whitelists and dynamic signature verification, automatic identification and blocking of abnormal call behavior.
+- **Tamper-proof logs**: Full operation auditing ensuring behavior is traceable and auditable.
+- **Compliance adaptation**: Deep adaptation to GDPR, Data Security Law (DSL), and Personal Information Protection Law (PIPL).
+- **Data lineage**: Full-chain data lineage tracking, queryable from source to application.
+
+### 3.11 Data quality inspection engine capabilities and DAMA standard coverage
+
+The platform's built-in data quality inspection module follows the DAMA International Data Management Association's data quality management framework, covering the following six core dimensions:
+
+| Inspection Dimension | Description                |
+| -------------------- | --------------------------------------------------------------------------------------------- |
+| Completeness         | Detects field null rates and record missing rates to ensure dataset completeness.             |
+| Consistency| Cross-table, cross-database, and cross-system data consistency validation.                    |
+| Accuracy             | Business rule validation to detect whether data conforms to expected value ranges and logic.  |
+| Timeliness           | Data arrival timeliness detection to identify delayed and lagging data.                       |
+| Uniqueness           | Primary key and composite unique key duplicate detection to eliminate redundant data.         |
+| Standardization      | Encoding standards, naming conventions, and format compliance validation.                     |
+
+**Quality inspection capability highlights**:
+
+- Supports both **scheduled batch inspection** and **real-time streaming inspection** modes.
+- Built-in industry-general rule library, supports custom quality inspection rules.
+- Inspection results automatically generate analysis reports with dynamic report output.
+- Problem data (dirty data) identified during inspection is automatically flagged and returned to upstream for correction.
+- Quality inspection health rate is incorporated into the asset value assessment dimension.
+
+### 3.12 Difference and collaboration between data asset management and the asset marketplace
+
+**Asset management (management side)**:
+
+- Data source table asset listing/delisting is managed in metadata management.
+- Compute source table (ADS layer data produced by project spaces) listing/delisting is done in business planning project spaces for dimension tables, fact tables, and metrics.
+- API online/offline management is done in the interface marketplace with customizable approval workflows.
+- Business classification directory trees can be built for data source tables and compute source tables. Business classification and data security classification/grading are two separate concepts.
+- The current version **does not open** the source resource cataloging process or the data asset cataloging process — metadata management is used instead.
+
+**Asset marketplace (sharing side)**:
+
+- Facing all platform business users.
+- Provides a self-service search and browsing experience similar to a "data supermarket."
+- Features include: asset catalog, classification and grading, lineage tracking, asset detail viewing.
+- Supports multi-dimensional asset value assessment from catalog completeness, quality inspection health rate, and usage activity — also useful for identifying "zombie data" (assets not accessed or used for extended periods).
+- Supports cross-project compliant sharing: users can discover, apply for, and subscribe to compliant data assets from other project spaces.
+- In the asset marketplace, selecting tables from the asset catalog allows applying for table permissions and table API read permissions; upon approval, APIs are automatically generated and can be viewed in "My Interfaces" in the Shared Services Center.
+- If the needed asset catalog cannot be found in the asset marketplace, a work order application process is available, viewable in Management Center > Process Approval, with offline coordination follow-up.
+- All sharing actions go through a permission approval process to ensure compliant data circulation.
+
+**Collaboration**: Administrators view details and business classifications through the asset management module; business users discover and apply for usage through the asset marketplace — forming a complete data asset operations closed loop.
+
+### 3.13 Is a trusted data space platform supported?
+
+Yes, upgrading to a trusted data space system is supported. Ottomi Nexus is a foundational capability module for trusted data space systems oriented toward multi-party data collaboration scenarios. The trusted data space system is designed on a zero-trust architecture:
+
+**Core mechanisms**:
+
+- **Connector management**: After application, full-featured connectors are automatically distributed and deployed to achieve secure connection between data providers and consumers. Full-featured connectors include Ottomi Nexus's data aggregation, development, quality inspection, modeling, and sharing capabilities.
+- **Sample engine**: Automatically implements lightweight privacy computing, extracting desensitized samples from real production data for use in development environments.
+- **Dual-sandbox + permission management**: Development-production dual-sandbox mechanism combined with RBAC+ABAC fine-grained permissions to prevent data leakage.
+- **Space management**: Create independent data spaces on demand; each space's data is naturally isolated with support for cross-space compliant sharing.
+- **Log attestation**: Ottomi Nexus has tamper-proof log auditing capabilities and can integrate with blockchain for attestation management.
+
+**Applicable scenarios**:
+
+- Secure data sharing across subsidiaries within a group.
+- Cross-department data element circulation in government affairs.
+- Data collaboration across upstream and downstream supply chains.
+- Targeted data opening to external partners.
+
+---
+
+## 4. Operations & Troubleshooting FAQ
+
+### 4.1 Minimum hardware requirements for local/server deployment
+
+| Item               | Requirement|
+| ------------------ | --------------------------------------------------------------------------- |
+| Operating system   | Mainstream Linux distributions (Debian/RedHat-based, including domestic OS) |
+| Server architecture | X86_64 (aarch64 support coming in future releases)                         |
+| Minimum specs      | 8-core CPU + 16 GB RAM                |
+| Prerequisites      | Docker v28.3.3+, Docker Compose v2.36.1+                                    |
+| Metadata service   | DataHub V1.30                |
+| Network port       | 6626 (Web access port)                                                      |
+
+### 4.2 How to resolve installation failures, port conflicts, and missing dependencies?
+
+**Installation startup failure**:
+
+1. Check whether Docker and Docker Compose versions meet requirements.
+2. Confirm the installation package was fully extracted: `tar zxvf ocean.tar.gz`
+3. Check whether the DataHub connection address and Token configuration in `docker-compose.yml` are correct.
+
+**Port conflict**:
+
+- Default port is 6626; if occupied, modify the port mapping in `docker-compose.yml`.
+- Use `netstat -tlnp | grep 6626` to check port occupancy.
+
+**Missing dependencies**:
+
+- Confirm Docker service is running: `systemctl status docker`
+- Confirm DataHub is installed and running normally.
+- Confirm a DataHub Token has been generated and configured in `docker-compose.yml`.
+
+### 4.3 Service start/stop, log viewing, and runtime status monitoring
+
+**Service start/stop**:
+
+```bash
+# Start all services
+docker-compose up -d
+
+# Stop all services
+docker-compose down
+```
+
+**Log viewing**:
+
+```bash
+# Real-time platform container logs
+docker logs -f --tail=20 ocean-platform
+
+# View all container statuses
+docker-compose ps
+```
+
+**Status monitoring**:
+
+- Use `docker-compose ps` to check the running status of each container.
+- After successful platform startup, a success message will appear in the logs.
+- Access `http://<IP>:6626` in a browser to confirm the Web service is available.
+
+### 4.4 Troubleshooting data sync failures, connection timeouts, and data source connectivity
+
+1. **Check data source connection**: On the data source management page, click "Test Connection" to verify network and authentication information.
+2. **Check firewall**: Confirm the network path from the server to the data source is normal and relevant ports are open.
+3. **Check logs**: View error messages in the `ocean-platform` container logs.
+4. **Check resources**: Confirm the server has sufficient CPU, memory, and disk resources.
+5. **Check drivers**: Confirm the JDBC driver or connector version for the data source is compatible.
+
+### 4.5 Version migration, environment migration, data backup and recovery
+
+- **Version upgrade**: After official release of a new version, follow the upgrade documentation; commercial edition users can upgrade mainline versions for free.
+- **Environment migration**: Deploy the same version on the new environment, migrate data via data export/import.
+- **Data backup**: Regularly back up Docker-mounted data directories and databases.
+- **License migration**: Commercial edition users migrating environments need to regenerate the environment code and apply for a new activation code.
+
+### 4.6 System lag, performance load, and resource usage optimization
+
+- **Resource check**: Use `top`, `free -m`, `df -h` to check CPU, memory, and disk usage.
+- **Task scheduling**: Schedule large batch data processing tasks during off-peak hours.
+- **Node scaling**: Commercial editions support adding compute nodes to improve parallel processing capacity.
+- **Data cleanup**: Regularly clean up expired scheduling logs, temporary data, and test data.
+- **Configuration optimization**: Adjust Docker container resource limit parameters based on server specs.
+
+### 4.7 Containerized deployment and Docker-related issue handling
+
+- **Container won't start**: Check `docker-compose.yml` configuration, port conflicts, and disk space.
+- **Image pull failure** (online deployment): Check network connectivity, confirm the image registry address is accessible.
+- **Offline image import**: Use `docker load -i <image file>` to import offline images.
+- **Insufficient container resources**: Adjust `mem_limit`, `cpus`, and other parameters in `docker-compose.yml`.
+- **Incorrect container time**: Confirm the host timezone is configured correctly, or mount the timezone file in docker-compose.
+
+### 4.8 Security hardening, port protection, and access whitelist configuration
+
+- **Port protection**: Only open necessary ports (6626); restrict access to other ports via firewall.
+- **Access whitelist**: Configure IP whitelists via firewall (iptables / firewalld).
+- **Default password change**: Immediately change the default admin password after deployment.
+- **HTTPS configuration**: Production environments should configure Nginx reverse proxy with SSL enabled.
+- **Log auditing**: Regularly check system logs and monitor abnormal access and operation records.
+- **Regular updates**: Promptly apply official security patches and version updates.
+
+### 4.9 Upgrade failures, patch updates, and config file compatibility issues
+
+- Back up data directories and configuration files before upgrading.
+- Carefully read the official upgrade notes and confirm version compatibility.
+- If a failure occurs during upgrade, do not restart midway — check logs first to identify the cause.
+- When configuration files change, compare the differences between old and new `docker-compose.yml` files.
+- After upgrading, verify that all functional modules are working normally.
+
+### 4.10 Common error codes and quick troubleshooting guide
+
+Since the platform uses containerized deployment, the general troubleshooting steps are:
+
+1. **Check container status**: `docker-compose ps` to confirm all containers are running normally.
+2. **Check container logs**: `docker logs <container name>` to view specific error messages.
+3. **Check resource usage**: `docker stats` to view container resource consumption.
+4. **Check network connectivity**: Confirm inter-container network communication is normal.
+5. **Check configuration files**: Confirm `docker-compose.yml` and environment variable configurations are correct.
+
+If the issue cannot be resolved independently:
+
+- Community Edition users: Submit via [GitHub Issues](../../issues) with version information, deployment environment, reproduction steps, and relevant logs.
+- Commercial edition users: Submit through the dedicated Case system for remote technical support.
+
+### 4.11 Operations management system
+
+Paid customers can obtain and deploy an operations management system for the multimodal AI data platform at no additional cost. Features include: **hardware and service monitoring**, **data backup**, and **primary-standby architecture + automatic failover**. Data backup primarily targets the system's own configuration database and configuration files.
+
+Ottomi Nexus adopts a distributed architecture with a **single primary management node** for overall scheduling; if the primary node fails, it will directly impact the platform's overall business operations. For paid customers, the platform provides a dedicated **operations management system** free of charge, with built-in **automatic primary-standby node switching** — when the primary management node fails, the standby node automatically takes over to ensure uninterrupted platform operation. The operations management system also provides **hardware resource monitoring, service operation monitoring, and core data backup** capabilities, comprehensively ensuring the long-term reliable and secure operation of the multimodal AI data platform.
+
+---
+
+## 5. Selection & General Q&A FAQ
+
+### 5.1 How does Ottomi Nexus differ from assembling Apache SeaTunnel / DataHub / DolphinScheduler separately?
+
+This is the most common question raised by technical personnel during evaluation. Although Ottomi Nexus deeply integrates these excellent open-source components, there are fundamental differences:
+
+| Comparison Dimension | Assembling Open-Source Tools Separately | Ottomi Nexus |
+| -------------------- | --------------------------------------- | ------------ |
+| **Integration** | Requires self-installation, configuration, and joint debugging of multiple independent components; version compatibility must be self-managed. | Single-package integrated delivery; all components pre-integrated and pre-configured, ready out of the box. |
+| **User experience** | Each component has an independent interface with frequent switching and high learning costs. | Unified Web interface; full-chain operations completed on one platform. |
+| **Data security** | Requires self-building of permission systems, desensitization mechanisms, and audit logs. | Built-in classification/grading, dual-sandbox isolation, desensitization engine, and full-chain auditing. |
+| **AI capabilities** | No built-in AI assistance; requires self-integration with large models. | Built-in AI Intelligence Center with intelligent cataloging, governance, and development assistance. |
+| **Data asset operations** | No unified asset management; data scattered across components. | Built-in data asset management, asset marketplace, lineage tracking, and value assessment. |
+| **Data warehouse modeling** | Requires other tools or manual SQL writing. | Built-in visual data warehouse modeling, dimensional modeling, Cube design, and metrics system. |
+| **Operations cost** | Requires professional operations team to maintain multiple systems. | Containerized deployment greatly reduces operations complexity. |
+| **Data compliance** | Requires self-adaptation to Data Security Law, PIPL, and other regulations. | Built-in compliance system with automatic classification/grading and national cryptographic algorithm support. |
+
+In short: assembling open-source components separately only yields a toolset, while Ottomi Nexus is a **complete data platform product** providing a full-chain capability closed loop from data ingestion to data service.
+
+### 5.2 Is the Community Edition really feature-complete? Will key features require payment later?
+
+Features are genuinely not restricted. All three editions use the **exact same installation package** with identical core feature modules — differences are only in **resource usage limits** and **technical support service levels**.
+
+Specifically, the Community Edition includes all of the following core capabilities:
+- Data ingestion (dozens of mainstream data sources, supports JDBC driver extension)
+- AI-assisted data governance (intelligent cataloging, aggregation, and recommendations)
+- Data quality inspection (DAMA six-dimension quality inspection)
+- Visual data
