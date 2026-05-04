@@ -1,4 +1,4 @@
-Copyright (c) 2025-present 上海奥腾计算机科技有限公司
+##　Copyright (c) 2025-present 上海奥腾计算机科技有限公司
 
 Ottomi Nexus 产品采用“商业差异化授权”模式：
 1. 基础版：免费使用，仅限非商业、企业内部合法部署与使用；
@@ -9,3 +9,14 @@ Ottomi Nexus 产品采用“商业差异化授权”模式：
 
 版权所有，保留一切未明确授予的权利。
 
+
+## Copyright (c) 2025-present Shanghai Oceandatum Computer Technology Co., Ltd.
+
+Ottomi Nexus is licensed under a "Commercially Differentiated License" model:
+1. Community Edition: Free to use, limited to non-commercial and lawful internal enterprise deployment and use only.
+2. Commercial Edition (Professional Edition, Enterprise Edition): Official written authorization must be obtained prior to use.
+3. This product is "partially open-source in future modules" — the product as a whole is not open-source. Decompilation, redistribution, sublicensing, and resale are strictly prohibited.
+
+Third-party open-source components integrated in this project are governed by their respective original open-source licenses (see NOTICE file for details).
+
+All rights reserved. All rights not expressly granted herein are reserved.
