@@ -30,3 +30,38 @@
 info@oceandatum.com
 
 官网：https://www.oceandatum.com
+
+
+
+# Product Support
+
+## Support Channels & Scope
+
+This project provides differentiated technical support for **Community Edition** and **Commercial Edition** users. All support is handled exclusively through official designated channels. Inquiries and service requests through unofficial channels will not be accepted.
+
+### I. Community Edition Support (Free Forever)
+
+1. Support channel: Public community Q&A via GitHub Issues only. Limited to general feature usage, deployment environment compatibility, and publicly known issue troubleshooting;
+2. Out of scope: No one-on-one dedicated technical guidance, no custom requirement handling, no in-depth fault diagnosis, no on-site implementation or training services;
+3. Response time: Community issues are addressed on business days at irregular intervals, with no guaranteed response time commitment.
+
+### II. Commercial Edition Support (Enterprise Exclusive)
+
+1. Dedicated support channel: Business email at info@oceandatum.com;
+2. Support scope: Full-scenario technical support including deployment and debugging, complete feature guidance, dedicated fault diagnosis, performance optimization, security hardening, and multi-tenant configuration. On-site implementation, team training, and custom feature integration services are available upon agreement;
+3. Response time: Fast response on business days, in accordance with enterprise-grade SLA commitments;
+4. Additional benefits: Priority access to version updates, security vulnerability fixes, and dedicated solution customization services.
+
+## Submission Guidelines
+
+1. When submitting an issue, please include the product version, deployment environment, reproduction steps, and relevant logs or screenshots to facilitate efficient troubleshooting;
+2. For inquiries related to commercial licensing, paid upgrades, or custom development, contact us directly via the business email — do not post in public community channels;
+3. Product usage must strictly comply with the terms set out in the project's LICENSE and NOTICE files. Issues arising from non-compliant use are outside the scope of support.
+
+## Business Inquiries
+
+For enterprise Commercial Edition procurement, dedicated technical support, or custom solution partnerships, please send an email to:
+
+info@oceandatum.com
+
+Website: https://www.oceandatum.com
