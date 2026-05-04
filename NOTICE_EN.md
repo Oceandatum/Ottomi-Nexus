@@ -1,6 +1,6 @@
 # NOTICE
 
-## 目录
+## Table of Contents
 - [Copyright Notice](#Copyright-Notice)
 - [Embedded Third-Party Component Declarations](#Embedded-Third-Party-Component-Declarations)
 - [Trademark and Logo Declaration](#Trademark-and-Logo-Declaration)
