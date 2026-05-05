@@ -24,7 +24,7 @@
 
 Ottomi Nexus is delivered as a single package. Install with one command and go live immediately — no complex environment setup or secondary development required.
 
-Built-in full-chain capabilities covering data ingestion, intelligent governance, data warehouse modeling, data quality inspection, data sharing, asset management, BI analytics, and permission approval — enabling enterprises to move from "multi-system patchwork" to **one platform that handles all data challenges**.
+Integrated with full-link capabilities including data ingestion, intelligent governance, data warehouse modeling, data quality inspection, data sharing, asset management, BI analysis and permission approval.It helps enterprises move away from **siloed system isolation** and **fragmented assembly of open-source components**, and upgrade to **an integrated middle platform foundation** to coordinate global data integration, governance and value implementation.
 
 ### 1.2 AI-Assisted Automated Governance — Dramatically Lower Labor Costs
 
