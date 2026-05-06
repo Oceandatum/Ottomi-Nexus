@@ -17,11 +17,11 @@
 | 安全政策             | [SECURITY.md](./SECURITY.md)                                 | 安全漏洞披露流程与报告方式                   |
 | 合规声明             | [COMPLIANCE.md](./COMPLIANCE.md)                             | 法律合规与出口管制相关说明                   |
 | 产品路线图           | [ROADMAP.md](./ROADMAP.md)                                   | 产品迭代规划与未来发展方向                   |
-| 内置函数说明         | [Ottomi-Nexus/docs/data-development/built-in-functions.md](./Ottomi-Nexus/docs/data-development/built-in-functions.md) | 数据开发相关内置函数详细说明                 |
-| 组件列表说明         | [Ottomi-Nexus/docs/data-development/component-list.md](./Ottomi-Nexus/docs/data-development/component-list.md) | 数据开发相关组件清单及说明                   |
-| 数据质量规则库详情   | [Ottomi-Nexus/docs/data-quality/rule-library-details.md](./Ottomi-Nexus/docs/data-quality/rule-library-details.md) | 数据质量规则库的详细定义与使用说明           |
-| 水利质量检查行业示例 | [Ottomi-Nexus/docs/industry-examples/water-conservancy-quality-check.md](./Ottomi-Nexus/docs/industry-examples/water-conservancy-quality-check.md) | 水利行业质量检查相关的应用示例               |
-| 操作手册（V1.3.3）   | [docs/operation-manual/Ottomi-Nexus-3.0-操作手册V1.3.3.pdf](./docs/operation-manual/Ottomi-Nexus-3.0-操作手册V1.3.3.pdf) | Ottomi-Nexus 3.0 版本V1.3.3操作手册（PDF版） |
+| 内置函数说明         | [built-in-functions.md](./docs/data-development/built-in-functions.md) | 数据开发相关内置函数详细说明                 |
+| 组件列表说明         | [component-list.md](./docs/data-development/component-list.md) | 数据开发相关组件清单及说明                   |
+| 数据质量规则库详情   | [rule-library-details.md](./docs/data-quality/rule-library-details.md) | 数据质量规则库的详细定义与使用说明           |
+| 水利质量检查行业示例 | [water-conservancy-quality-check.md](./docs/industry-examples/water-conservancy-quality-check.md) | 水利行业质量检查相关的应用示例               |
+| 操作手册（V1.3.3）   | [Ottomi-Nexus-3.0-操作手册V1.3.3.pdf](./docs/operation-manual/Ottomi-Nexus-3.0-操作手册V1.3.3.pdf) | Ottomi-Nexus 3.0 版本V1.3.3操作手册（PDF版） |
 
 
 
