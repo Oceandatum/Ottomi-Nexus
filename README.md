@@ -21,7 +21,7 @@
 | 组件列表说明         | [component-list.md](./docs/data-development/component-list.md) | 数据开发相关组件清单及说明                   |
 | 数据质量规则库详情   | [rule-library-details.md](./docs/data-quality/rule-library-details.md) | 数据质量规则库的详细定义与使用说明           |
 | 水利质量检查行业示例 | [water-conservancy-quality-check.md](./docs/industry-examples/water-conservancy-quality-check.md) | 水利行业质量检查相关的应用示例               |
-| 操作手册（V1.3.3）   | [Ottomi-Nexus-3.0-操作手册V1.3.3.pdf](./docs/user-manual-v133.pdf) | Ottomi-Nexus 3.0 版本V1.3.3操作手册（PDF版） |
+| 操作手册（V1.3.3）   | [user-manual-v133.pdf](./docs/user-manual-v133.pdf) | Ottomi-Nexus 3.0 版本V1.3.3操作手册（PDF版） |
 
 
 
