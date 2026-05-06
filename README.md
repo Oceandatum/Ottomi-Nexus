@@ -148,7 +148,11 @@ http://www.ottomi.top
 
 平台采用一体化 Web 操作界面，简洁轻量、学习成本低，涵盖数据资产总览、AI 自动化治理工作台、可视化数仓建模、多模态数据管理等核心界面。
 
-（界面截图待补充）
+![界面截图](/docs/images/ai-dev01.png)
+
+![界面截图](/docs/images/cube01.png)
+
+![界面截图](/docs/images/asset-m01.png)
 
 ---
 
