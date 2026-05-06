@@ -10,7 +10,7 @@
 | Third-Party Component Notices | [NOTICE_EN.md](./NOTICE_EN.md) | Copyright notices for third-party open source dependencies |
 | Changelog | [CHANGELOG.md](./CHANGELOG.md) | Version history and feature changes |
 | Installation Guide | [INSTALLATION.md](./INSTALLATION.md) | System requirements, environment setup, and installation steps |
-| Edition & Licensing Rules | [Ottomi Nexus Edition and Licensing Rules.md](./Ottomi Nexus Basic and Commercial Edition Rules_EN.md) | Resource limits, licensing, and unlock rules for Community/Commercial editions |
+| Edition & Licensing Rules | [Ottomi Nexus Basic and Commercial Edition Rules_EN.md](./Ottomi Nexus Basic and Commercial Edition Rules_EN.md) | Resource limits, licensing, and unlock rules for Community/Commercial editions |
 | Product Support | [SUPPORT.md](./SUPPORT.md) | Differentiated technical support channels and service scope for Community/Commercial editions |
 | FAQ | [FAQ_EN.md](./FAQ_EN.md) | Frequently asked questions and answers |
 | Security Policy | [SECURITY.md](./SECURITY.md) | Security vulnerability disclosure process and reporting methods |
