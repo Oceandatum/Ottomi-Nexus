@@ -4,57 +4,24 @@
 
 📚 项目文档索引
 
-文档
-链接
-说明
-项目介绍与快速开始
-[README.md](./README.md)
-产品核心定位、功能概览与快速上手指引
-开源许可协议
-[LICENSE](./LICENSE)
-项目开源许可条款
-第三方组件声明
-[NOTICE.md](./NOTICE.md)
-依赖的第三方开源组件版权说明
-版本更新日志
-[CHANGELOG.md](./CHANGELOG.md)
-各版本迭代记录与功能变更
-安装指南
-[INSTALLATION.md](./INSTALLATION.md)
-系统要求、环境配置与安装步骤
-版本与授权规则
-[Ottomi Nexus 基础版与商业版规则说明.md](./Ottomi%20Nexus%20基础版与商业版规则说明.md)
-基础版/商业版资源限制、授权与解锁规则
-产品支持说明
-[SUPPORT.md](./SUPPORT.md)
-基础版/商业版差异化技术支持渠道与服务范围
-常见问题解答
-[FAQ.md](./FAQ.md)
-用户高频问题汇总与解答
-安全政策
-[SECURITY.md](./SECURITY.md)
-安全漏洞披露流程与报告方式
-合规声明
-[COMPLIANCE.md](./COMPLIANCE.md)
-法律合规与出口管制相关说明
-产品路线图
-[ROADMAP.md](./ROADMAP.md)
-产品迭代规划与未来发展方向
-内置函数说明
-[Ottomi-Nexus/docs/data-development/built-in-functions.md](./Ottomi-Nexus/docs/data-development/built-in-functions.md)
-数据开发相关内置函数详细说明
-组件列表说明
-[Ottomi-Nexus/docs/data-development/component-list.md](./Ottomi-Nexus/docs/data-development/component-list.md)
-数据开发相关组件清单及说明
-数据质量规则库详情
-[Ottomi-Nexus/docs/data-quality/rule-library-details.md](./Ottomi-Nexus/docs/data-quality/rule-library-details.md)
-数据质量规则库的详细定义与使用说明
-水利质量检查行业示例
-[Ottomi-Nexus/docs/industry-examples/water-conservancy-quality-check.md](./Ottomi-Nexus/docs/industry-examples/water-conservancy-quality-check.md)
-水利行业质量检查相关的应用示例
-操作手册（V1.3.3）
-[docs/operation-manual/Ottomi-Nexus-3.0-操作手册V1.3.3.pdf](./docs/operation-manual/Ottomi-Nexus-3.0-操作手册V1.3.3.pdf)
-Ottomi-Nexus 3.0 版本V1.3.3操作手册（PDF版）
+| 文档                 | 链接                                                         | 说明                                         |
+| -------------------- | ------------------------------------------------------------ | -------------------------------------------- |
+| 项目介绍与快速开始   | [README.md](./README.md)                                     | 产品核心定位、功能概览与快速上手指引         |
+| 开源许可协议         | [LICENSE](./LICENSE)                                         | 项目开源许可条款                             |
+| 第三方组件声明       | [NOTICE.md](./NOTICE.md)                                     | 依赖的第三方开源组件版权说明                 |
+| 版本更新日志         | [CHANGELOG.md](./CHANGELOG.md)                               | 各版本迭代记录与功能变更                     |
+| 安装指南             | [INSTALLATION.md](./INSTALLATION.md)                         | 系统要求、环境配置与安装步骤                 |
+| 版本与授权规则       | [Ottomi Nexus 基础版与商业版规则说明.md](./Ottomi%20Nexus%20基础版与商业版规则说明.md) | 基础版/商业版资源限制、授权与解锁规则        |
+| 产品支持说明         | [SUPPORT.md](./SUPPORT.md)                                   | 基础版/商业版差异化技术支持渠道与服务范围    |
+| 常见问题解答         | [FAQ.md](./FAQ.md)                                           | 用户高频问题汇总与解答                       |
+| 安全政策             | [SECURITY.md](./SECURITY.md)                                 | 安全漏洞披露流程与报告方式                   |
+| 合规声明             | [COMPLIANCE.md](./COMPLIANCE.md)                             | 法律合规与出口管制相关说明                   |
+| 产品路线图           | [ROADMAP.md](./ROADMAP.md)                                   | 产品迭代规划与未来发展方向                   |
+| 内置函数说明         | [Ottomi-Nexus/docs/data-development/built-in-functions.md](./Ottomi-Nexus/docs/data-development/built-in-functions.md) | 数据开发相关内置函数详细说明                 |
+| 组件列表说明         | [Ottomi-Nexus/docs/data-development/component-list.md](./Ottomi-Nexus/docs/data-development/component-list.md) | 数据开发相关组件清单及说明                   |
+| 数据质量规则库详情   | [Ottomi-Nexus/docs/data-quality/rule-library-details.md](./Ottomi-Nexus/docs/data-quality/rule-library-details.md) | 数据质量规则库的详细定义与使用说明           |
+| 水利质量检查行业示例 | [Ottomi-Nexus/docs/industry-examples/water-conservancy-quality-check.md](./Ottomi-Nexus/docs/industry-examples/water-conservancy-quality-check.md) | 水利行业质量检查相关的应用示例               |
+| 操作手册（V1.3.3）   | [docs/operation-manual/Ottomi-Nexus-3.0-操作手册V1.3.3.pdf](./docs/operation-manual/Ottomi-Nexus-3.0-操作手册V1.3.3.pdf) | Ottomi-Nexus 3.0 版本V1.3.3操作手册（PDF版） |
 
 
 
