@@ -147,7 +147,11 @@ http://www.ottomi.top
 
 The platform features a unified Web interface — clean, lightweight, and easy to learn — covering core views including data asset overview, AI-automated governance workbench, visual data warehouse modeling, and multimodal data management.
 
-(Screenshots to be added)
+![界面截图](/docs/images/ai-dev01.png)
+
+![界面截图](/docs/images/cube01.png)
+
+![界面截图](/docs/images/asset-m01.png)
 
 ---
 
