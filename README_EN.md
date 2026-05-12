@@ -139,7 +139,7 @@ After deployment, a complete Demo project and Demo data space are built in out o
 
 ## 5. Online Demo
 
-http://www.ottomi.top
+http://www.ottomi-nexus.com
 
 ---
 
