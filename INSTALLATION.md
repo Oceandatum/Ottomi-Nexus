@@ -45,7 +45,7 @@ Ottomi Nexus V3.0 依赖 **DataHub V1.30** 作为元数据管理组件，需要�
    ```
 
 3. 进入解压后的目录，修改 `docker-compose.yml` 配置文件，需要改变量
-![Uploading image.png…]()
+
 
 ![界面截图](/docs/images/docker-compose.jpg)
 
@@ -63,7 +63,7 @@ Ottomi Nexus V3.0 依赖 **DataHub V1.30** 作为元数据管理组件，需要�
 5. 启动完成后，通过浏览器访问平台：
    - 访问地址：`http://服务器IP:6626`
    - 默认账号：`admin`
-   - 默认密码：`1qaz@WSX`
+   - 默认密码：`Ocean@2025`
 
 > 注意：首次登录后请立即修改默认密码，保障系统安全。
 > 
