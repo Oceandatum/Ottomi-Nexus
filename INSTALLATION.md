@@ -44,7 +44,8 @@ Ottomi Nexus V3.0 依赖 **DataHub V1.30** 作为元数据管理组件，需要�
    tar zxvf ocean.tar.gz
    ```
 
-3. 进入解压后的目录，修改 `docker-compose.yml` 配置文件，需要改三个变量
+3. 进入解压后的目录，修改 `docker-compose.yml` 配置文件，需要改变量
+![Uploading image.png…]()
 
 ![界面截图](/docs/images/docker-compose.jpg)
 
