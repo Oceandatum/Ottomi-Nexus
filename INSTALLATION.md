@@ -45,6 +45,7 @@ Ottomi Nexus V3.0 依赖 **DataHub V1.30** 作为元数据管理组件，需要�
    ```
 
 3. 进入解压后的目录，修改 `docker-compose.yml` 配置文件，需要改变量
+<img width="1106" height="564" alt="image" src="https://github.com/user-attachments/assets/86ddcd2b-19c7-4d0e-bcb7-4655346473d9" />
 
 
 ![界面截图](/docs/images/docker-compose.jpg)
@@ -67,4 +68,5 @@ Ottomi Nexus V3.0 依赖 **DataHub V1.30** 作为元数据管理组件，需要�
 
 > 注意：首次登录后请立即修改默认密码，保障系统安全。
 > 
-![界面截图](/docs/images/start1.png)
+<img width="1276" height="658" alt="image2" src="https://github.com/user-attachments/assets/1172f887-ea80-4a9f-8d2e-d9c8156ac77e" />
+
