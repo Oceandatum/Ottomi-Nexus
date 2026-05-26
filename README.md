@@ -140,7 +140,8 @@ Ottomi Nexus 部署包体积较大，采用 **在线拉取镜像 + 离线私有�
 
 ## 5. 在线演示
 
-http://www.ottomi-nexus.com
+https://www.oceandatum.com/1777979356473
+进入页面后，点击‘在线 Demo 体验’。通过联系表单预约演示，或发送 Email 到info@oceandatum.com获取演示账号
 
 ---
 
