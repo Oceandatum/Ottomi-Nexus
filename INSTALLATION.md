@@ -29,7 +29,8 @@ Ottomi Nexus V3.0 基于容器化部署，需要提前安装以下组件：
    ```
 
 3. 进入解压后的目录，修改 `docker-compose.yml` 配置文件，需要改变量
-<img width="415" height="212" alt="image" src="https://github.com/user-attachments/assets/c4d88bde-7837-4116-8c37-c6fccc5167ea" />
+<img width="2213" height="1128" alt="image" src="https://github.com/user-attachments/assets/87d72809-d6fa-495a-b189-98cb6ec74d66" />
+
 
 
 4. 启动服务
