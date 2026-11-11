@@ -167,7 +167,7 @@ Ottomi Nexus 构建于云原生架构之上，深度集成主流开源生态与�
 
 - 内置开源生态组件
 
-  深度整合 SeaTunnel、DolphinScheduler、DataHub、DataEase、MinIO、Flink、Kafka、Redis 等开源项目，内置全链路数据接入、调度、元数据管理与 BI 可视化能力，大幅降低二次开发成本。
+  深度整合 SeaTunnel、DolphinScheduler、DataEase、MinIO、Flink、Kafka、Redis 等开源项目，内置全链路数据接入、调度、元数据管理与 BI 可视化能力，大幅降低二次开发成本。
 
 - 多源异构数据兼容
 
